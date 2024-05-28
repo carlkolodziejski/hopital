@@ -1,5 +1,7 @@
 @startuml
 
+legend Le paquetage model.
+
 package model {
 
     abstract class Personne {
@@ -12,10 +14,10 @@ package model {
     }
 
     class Patient extends Personne implements Recherchable {
-        -dateNaissance: Date
+        -dateNaissance: LocalDate
         -prenom: String
 
-        +<<constructor>>Patient(id: String, nom: String, prenom: String, JJ/MM/AAAA: String)
+        +<<constructor>>Patient(id: String, nom: String, prenom: String, dateNaissance: LocalDate)
         +marquerFacturePaye(facture: Facture) : void
         +afficherEtatFactures(): void
         +enregistrerVisite(visite): void
@@ -30,6 +32,13 @@ package model {
     }
 
     class RendezVous {
+        -id: String
+        -motif: String
+        -feedback: String
+        -dateHeure: LocalDateTime
+
+        +<<constructor>>RendezVous(id: String, patient: Patient, motif: int, medecin: Medecin, dateHeure: LocalDateTime)
+        +toString(): String
     }
 
     class Ordonnance {
@@ -38,7 +47,7 @@ package model {
     class Facture {
     }
 
-    class Feedback {
+    class Hopital {
     }
 
     interface Recherchable {
@@ -47,14 +56,14 @@ package model {
     enum GroupeSanguin {
     }
 
-    exception FormatDateIncorrectException {
-    }
-
     Patient --> "-factures *" Facture
     Patient --> "-groupeSanguin 1" GroupeSanguin
     Patient --> "-historiqueMedical 1" HistoriqueMedical
 
     Medecin --> "-listeRendezVous *" RendezVous
+
+    RendezVous o-- "-medecin 1" Medecin
+    RendezVous o-- "-patient 1" Patient
 
 }
 
