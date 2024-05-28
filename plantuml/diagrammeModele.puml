@@ -20,7 +20,6 @@ package model {
         +<<constructor>>Patient(id: String, nom: String, prenom: String, dateNaissance: LocalDate)
         +marquerFacturePaye(facture: Facture) : void
         +afficherEtatFactures(): void
-        +enregistrerVisite(visite): void
         +afficherHistoriqueMedical(): void
     }
 
@@ -35,13 +34,30 @@ package model {
         -id: String
         -motif: String
         -feedback: String
+        -diagnostic: String
         -dateHeure: LocalDateTime
 
         +<<constructor>>RendezVous(id: String, patient: Patient, motif: int, medecin: Medecin, dateHeure: LocalDateTime)
+        +<<constructor>>RendezVous(id: String, patient: Patient, motif: int, feedback: String, diagnostic: String, medecin: Medecin, dateHeure: LocalDateTime)
         +toString(): String
+        +enregistrerVisite(): void
     }
 
     class Ordonnance {
+        -id: String
+
+        +prescrire(medicament Medicament): void
+        +afficherPrescriptions(): String
+        +toString(): String
+    }
+
+    class Medicament {
+        -nom: String
+        -nombreJours: int
+        -posologie: int
+
+        +<<constructor>>Medicament(nom: String, nombreJours: int, posologie: int)
+        +toString(): String
     }
 
     class Facture {
@@ -64,6 +80,9 @@ package model {
 
     RendezVous o-- "-medecin 1" Medecin
     RendezVous o-- "-patient 1" Patient
+    RendezVous --> "-ordonnance 1" Ordonnance
+
+    Ordonnance o-- "-medicaments 1..*" Medicament
 
 }
 
