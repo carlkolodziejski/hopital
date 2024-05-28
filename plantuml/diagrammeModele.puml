@@ -67,6 +67,9 @@ package model {
     }
 
     interface Recherchable {
+        rechercheParNom(): void
+        rechercheParSpecialisation(): void
+        rechercheGenerale(): void
     }
 
     enum GroupeSanguin {
