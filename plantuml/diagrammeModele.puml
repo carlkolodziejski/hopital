@@ -1,0 +1,61 @@
+@startuml
+
+package model {
+
+    abstract class Personne {
+        -id: String
+        -nom: String
+
+        +statut(): String
+        +afficherStatut(): void
+        +{abstract}toString(): String
+    }
+
+    class Patient extends Personne implements Recherchable {
+        -dateNaissance: Date
+        -prenom: String
+
+        +<<constructor>>Patient(id: String, nom: String, prenom: String, JJ/MM/AAAA: String)
+        +marquerFacturePaye(facture: Facture) : void
+        +afficherEtatFactures(): void
+        +enregistrerVisite(visite): void
+        +afficherHistoriqueMedical(): void
+    }
+
+
+    class Medecin extends Personne implements Recherchable {
+        -specialisation: String
+
+        +<<constructor>>Medecin(id: String, nom: String, specialisation: String)
+    }
+
+    class RendezVous {
+    }
+
+    class Ordonnance {
+    }
+
+    class Facture {
+    }
+
+    class Feedback {
+    }
+
+    interface Recherchable {
+    }
+
+    enum GroupeSanguin {
+    }
+
+    exception FormatDateIncorrectException {
+    }
+
+    Patient --> "-factures *" Facture
+    Patient --> "-groupeSanguin 1" GroupeSanguin
+    Patient --> "-historiqueMedical 1" HistoriqueMedical
+
+    Medecin --> "-listeRendezVous *" RendezVous
+
+}
+
+@enduml
