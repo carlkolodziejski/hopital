@@ -20,7 +20,7 @@ public abstract class Personne {
         if (this instanceof Medecin) {
             return "Médecin";
         } else {
-            return "fr.univartois.sae.hopital.model.Patient";
+            return "Patient";
         }
     }
 

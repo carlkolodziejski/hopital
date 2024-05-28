@@ -113,7 +113,7 @@ public class Hopital {
         Scanner sc = new Scanner(System.in);
         System.out.println("Qui enregistrer ?");
         System.out.println("1 - Médecin");
-        System.out.println("2 - fr.univartois.sae.hopital.model.Patient");
+        System.out.println("2 - Patient");
         System.out.println("0 - Revenir au menu principal");
         try {
             choix = sc.nextInt();
@@ -426,7 +426,7 @@ public class Hopital {
                     System.out.println("Cette facture a déjà été payée.");
                 } else {
                     patient.marquerFacturePayee(facture);
-                    System.out.println("fr.univartois.sae.hopital.model.Facture payée avec succès.");
+                    System.out.println("Facture payée avec succès.");
                 }
             } else if (choix == 0) {
                 return;

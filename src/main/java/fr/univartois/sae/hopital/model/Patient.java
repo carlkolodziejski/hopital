@@ -74,7 +74,7 @@ public class Patient extends Personne {
         System.out.println("État des factures :");
         for (int i = 0; i < this.getNombreFactures(); i++) {
             String statut = this.getListeFactures()[i].isPayee() ? "Payée" : "Non payée"; // Si vrai, retourne "Payée", sinon retourne "Non payée".
-            System.out.println((i + 1) + " - fr.univartois.sae.hopital.model.Patient : " + this.getListeFactures()[i].getPatient().getNom() + ", Médecin : " + this.getListeFactures()[i].getMedecin().getNom() +
+            System.out.println((i + 1) + " - Patient : " + this.getListeFactures()[i].getPatient().getNom() + ", Médecin : " + this.getListeFactures()[i].getMedecin().getNom() +
                     ", Date : " + this.getListeFactures()[i].getDateConsultation() + ", Montant : " + this.getListeFactures()[i].getMontantTotal() + " - Statut : "
                     + statut);
         }

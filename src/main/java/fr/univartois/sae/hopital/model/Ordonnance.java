@@ -55,7 +55,7 @@ public class Ordonnance {
 
     @Override
     public String toString() {
-        return "fr.univartois.sae.hopital.model.Ordonnance pour " + patient.getNom() + " " + patient.getPrenom() + " : \n"
+        return "Ordonnance pour " + patient.getNom() + " " + patient.getPrenom() + " : \n"
                 + afficherPrescriptions();
     }
 
