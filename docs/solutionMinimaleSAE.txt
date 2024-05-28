@@ -18,7 +18,8 @@ constructeur, getset
 toString
 
 RendezVous :
-id patient
+id
+patient
 medecin
 dateHeure
 
