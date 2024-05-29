@@ -1,8 +1,9 @@
 @startuml
 
-legend Le paquetage model.
-
-hide empty members
+legend
+Diagramme de classes du projet hôpital pour la SAÉ S2.01
+Développeurs : KOLODZIEJSKI Carl, GOUMZI Clément et HUGOT Antoine
+endlegend
 
 package model {
 
@@ -115,4 +116,9 @@ package model {
     HistoriqueMedical o-- "-historiqueRendezVous *" RendezVous
 }
 
+package view {
+}
+
+package controller {
+}
 @enduml
