@@ -18,7 +18,8 @@ constructeur, getset
 toString
 
 RendezVous :
-id patient
+id
+patient
 medecin
 dateHeure
 
@@ -35,7 +36,7 @@ toString
 Facture :
 id
 patient
-detailsServices : Liste des ervices fournis
+detailsServices : Liste des services fournis
 coutTotal : Coût total des services
 
 constructeur, getset
@@ -44,16 +45,8 @@ genererFacture : genere le détail de la facture
 afficherFacture : Affiche la facture
 
 Interface Recherchable :
-Cette interface définit les méthodes de recherche qui peuvent être implémentées par les classes Patient et Mddecin pour trouver des entités selon différents critères
+Cette interface définit les méthodes de recherche qui peuvent être implémentées par les classes Patient et Medecin pour trouver des entités selon différents critères
 
 rechercheParNom : retourne une lise d'entités dont le nom correspond au critère
 rechercheParSpecialisation : retourne une liste de médecins spécialisés correspondantau critère
 rechercheGenerale : méthode générique pour rechercher selon différents critères
-
-Feedback :
-id
-patientId
-medecinId
-dateConsultation
-commentaire
-

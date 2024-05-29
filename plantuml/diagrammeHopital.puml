@@ -1,0 +1,124 @@
+@startuml
+
+legend
+Diagramme de classes du projet hôpital pour la SAÉ S2.01
+Développeurs : KOLODZIEJSKI Carl, GOUMZI Clément et HUGOT Antoine
+endlegend
+
+package model {
+
+    abstract class Personne {
+        -id: String
+        -nom: String
+
+        +statut(): String
+        +afficherStatut(): void
+        +{abstract}toString(): String
+    }
+
+    class Patient extends Personne implements Recherchable {
+        -dateNaissance: LocalDate
+        -prenom: String
+
+        +<<constructor>>Patient(id: String, nom: String, prenom: String, dateNaissance: LocalDate)
+        +marquerFacturePaye(facture: Facture) : void
+        +afficherEtatFactures(): void
+        +afficherHistoriqueMedical(): void
+    }
+
+
+    class Medecin extends Personne implements Recherchable {
+        -specialisation: String
+
+        +<<constructor>>Medecin(id: String, nom: String, specialisation: String)
+    }
+
+    class RendezVous {
+        -id: String
+        -motif: String
+        -feedback: String
+        -diagnostic: String
+        -dateHeure: LocalDateTime
+
+        +<<constructor>>RendezVous(id: String, patient: Patient, motif: int, medecin: Medecin, dateHeure: LocalDateTime)
+        +<<constructor>>RendezVous(id: String, patient: Patient, motif: int, feedback: String, diagnostic: String, medecin: Medecin, dateHeure: LocalDateTime)
+        +toString(): String
+        +enregistrerVisite(): void
+    }
+
+    class Ordonnance {
+        -id: String
+
+        +prescrire(medicament Medicament): void
+        +afficherPrescriptions(): String
+        +toString(): String
+    }
+
+    class Medicament {
+        -nom: String
+        -nombreJours: int
+        -posologie: int
+
+        +<<constructor>>Medicament(nom: String, nombreJours: int, posologie: int)
+        +toString(): String
+    }
+
+    class Facture {
+        -id: String
+        -details: String
+        -coutTotal: double
+        -payee: boolean
+
+        +payer(): void
+    }
+
+    class Hopital {
+        +afficherMedecins(): void
+        +afficherPatients(): void
+    }
+
+    class HistoriqueMedical {
+        +ajouterRendezVous(rendezVous: RendezVous): void
+    }
+
+    interface Recherchable {
+        rechercheParNom(): void
+        rechercheParSpecialisation(): void
+        rechercheGenerale(): void
+    }
+
+    enum GroupeSanguin {
+        A_POSITIF
+        A_NEGATIF
+        B_POSITIF
+        B_NEGATIF
+        AB_POSITIF
+        AB_NEGATIF
+        O_POSITIF
+        O_NEGATIF
+    }
+
+    Patient --> "-factures *" Facture
+    Patient --> "-groupeSanguin 1" GroupeSanguin
+    Patient --> "-historiqueMedical 1" HistoriqueMedical
+
+    Medecin --> "-listeRendezVous *" RendezVous
+
+    RendezVous o-- "-medecin 1" Medecin
+    RendezVous o-- "-patient 1" Patient
+    RendezVous --> "-ordonnance 1" Ordonnance
+
+    Ordonnance o-- "-medicaments 1..*" Medicament
+
+    Hopital o-- "-medecin *" Medecin
+    Hopital o-- "-patient *" Patient
+
+    HistoriqueMedical o-- "-historiqueRendezVous *" RendezVous
+}
+
+package view {
+}
+
+package controller {
+}
+@enduml
