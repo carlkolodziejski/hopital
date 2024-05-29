@@ -61,6 +61,12 @@ package model {
     }
 
     class Facture {
+        -id: String
+        -details: String
+        -coutTotal: double
+        -payee: boolean
+
+        +payer(): void
     }
 
     class Hopital {
