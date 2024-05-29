@@ -36,7 +36,7 @@ toString
 Facture :
 id
 patient
-detailsServices : Liste des ervices fournis
+detailsServices : Liste des services fournis
 coutTotal : Coût total des services
 
 constructeur, getset
@@ -50,11 +50,3 @@ Cette interface définit les méthodes de recherche qui peuvent être implément
 rechercheParNom : retourne une lise d'entités dont le nom correspond au critère
 rechercheParSpecialisation : retourne une liste de médecins spécialisés correspondantau critère
 rechercheGenerale : méthode générique pour rechercher selon différents critères
-
-Feedback :
-id
-patientId
-medecinId
-dateConsultation
-commentaire
-
