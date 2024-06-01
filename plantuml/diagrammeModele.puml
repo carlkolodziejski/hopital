@@ -15,7 +15,7 @@ package model {
         +{abstract}toString(): String
     }
 
-    class Patient extends Personne implements Recherchable {
+    class Patient extends Personne {
         -dateNaissance: LocalDate
         -prenom: String
 
@@ -26,7 +26,7 @@ package model {
     }
 
 
-    class Medecin extends Personne implements Recherchable {
+    class Medecin extends Personne {
         -specialisation: String
 
         +<<constructor>>Medecin(id: String, nom: String, specialisation: String)
@@ -78,12 +78,6 @@ package model {
 
     class HistoriqueMedical {
         +ajouterRendezVous(rendezVous: RendezVous): void
-    }
-
-    interface Recherchable {
-        rechercheParNom(): void
-        rechercheParSpecialisation(): void
-        rechercheGenerale(): void
     }
 
     enum GroupeSanguin {
