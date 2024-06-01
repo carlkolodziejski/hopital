@@ -7,7 +7,7 @@ hide empty members
 package model {
 
     abstract class Personne {
-        -id: String
+        -id: String {readOnly}
         -nom: String
 
         +statut(): String
