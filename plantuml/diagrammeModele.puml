@@ -77,6 +77,7 @@ package model {
     }
 
     class HistoriqueMedical {
+        +<<constructor>>HistoriqueMedical("-historiqueRendezVous: RendezVous")
         +ajouterRendezVous(rendezVous: RendezVous): void
     }
 
