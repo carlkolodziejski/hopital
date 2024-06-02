@@ -9,11 +9,17 @@ public class Ordonnance {
     private final String id;
 
     /**
-     * Liste des médicaments que contient l'ordonnance.
+     * La liste des médicaments que contient l'ordonnance.
      */
     private List<Medicament> medicaments;
 
-    public Ordonnance(List<Medicament> medicaments, String id) {
+    /**
+     * Le constructeur de la classe Ordonnance.
+     *
+     * @param id          L'identifiant de l'ordonnance
+     * @param medicaments La liste des médicaments que contient l'ordonnance.
+     */
+    public Ordonnance(String id, List<Medicament> medicaments) {
         this.medicaments = medicaments;
         this.id = id;
     }
