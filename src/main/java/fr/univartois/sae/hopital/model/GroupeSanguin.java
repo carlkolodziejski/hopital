@@ -1,5 +1,8 @@
 package fr.univartois.sae.hopital.model;
 
+/**
+ * Énumération qui représente les différents groupes sanguins.
+ */
 public enum GroupeSanguin {
     A_POSITIF,
     A_NEGATIF,
