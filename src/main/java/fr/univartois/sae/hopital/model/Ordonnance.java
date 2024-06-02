@@ -40,6 +40,11 @@ public class Ordonnance {
         return affichageMedicaments.toString();
     }
 
+    /**
+     * Retourne une représentation en chaîne de l'ordonnance.
+     *
+     * @return Une chaîne représentant l'ordonnance.
+     */
     @Override
     public String toString() {
         return id + " : \n" + afficherMedicaments();
