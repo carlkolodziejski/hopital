@@ -49,7 +49,7 @@ package model {
         -id: String
 
         +prescrire(medicament Medicament): void
-        +afficherPrescriptions(): String
+        +afficherMedicaments(): String
         +toString(): String
     }
 
