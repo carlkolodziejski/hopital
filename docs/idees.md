@@ -9,7 +9,8 @@
 
 - Facture.detail = RendezVous.toString() ?
 - Facture.coutTotal = nombre de rdv dans la facture * prix d'un rdv ?
-- ça serait une DINGUERIE de générer un pdf pour afficher la facture !1!1!1!11!1!1
+- Ça serait une DINGUERIE de générer un pdf pour afficher la facture !1!1!1!11!1!1
+- Si une facture est payée, les nouveaux rendez-vous sont ajoutés à une nouvelle facture.
 
 ## Controleur
 
