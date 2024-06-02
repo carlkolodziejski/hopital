@@ -1,41 +1,26 @@
 package fr.univartois.sae.hopital.model;
 
+import java.util.Stack;
+
 public class HistoriqueMedical {
-    private final int TAILLE_MAX;
-    private RendezVous[] rendezVous;
-    private String[] diagnostics;
-    private Ordonnance[] traitements;
-    private int nombreVisites;
+    /**
+     * Pile qui représente l'historique des rendez-vous d'un patient.
+     */
+    private Stack<RendezVous> historiqueRendezVous;
 
+    /**
+     * Constructeur de la classe HistoriqueMedical.
+     */
     public HistoriqueMedical() {
-        TAILLE_MAX = 100;
-        rendezVous = new RendezVous[TAILLE_MAX];
-        diagnostics = new String[TAILLE_MAX];
-        traitements = new Ordonnance[TAILLE_MAX];
-        nombreVisites = 0;
+        this.historiqueRendezVous = new Stack<>();
     }
 
-    public RendezVous[] getVisites() {
-        return rendezVous;
-    }
-
-    public String[] getDiagnostics() {
-        return diagnostics;
-    }
-
-    public Ordonnance[] getTraitements() {
-        return traitements;
-    }
-
-    public int getTAILLE_MAX() {
-        return TAILLE_MAX;
-    }
-
-    public int getNombreVisites() {
-        return nombreVisites;
-    }
-
-    public void incrementerNombreVisites() {
-        nombreVisites++;
+    /**
+     * Ajoute un rendez-vous au sommet de la pile.
+     *
+     * @param rendezVous Le rendez-vous à ajouter.
+     */
+    public void ajouterRendezVous(RendezVous rendezVous) {
+        historiqueRendezVous.push(rendezVous);
     }
 }
