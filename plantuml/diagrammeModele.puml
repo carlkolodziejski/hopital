@@ -109,6 +109,8 @@ package model {
     Hopital o-- "-patient *" Patient
 
     HistoriqueMedical o-- "-historiqueRendezVous *" RendezVous
+
+    Facture o-- "-rendezVous 1..*" RendezVous
 }
 
 @enduml
