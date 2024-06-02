@@ -68,6 +68,7 @@ package model {
         -coutTotal: double
         -payee: boolean
 
+        +<<constructor>>Facture(id: String, details: String, coutTotal: double)
         +payer(): void
     }
 
