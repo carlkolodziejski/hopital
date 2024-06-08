@@ -1,52 +1,39 @@
 package fr.univartois.sae.hopital.model;
 
-public class RendezVous {
+import java.time.LocalDateTime;
+
+class RendezVous {
+    private String id;
+    private String motif;
+    private String feedback;
+    private String diagnostic;
+    private LocalDateTime dateHeure;
+    private Ordonnance ordonnance;
     private Patient patient;
     private Medecin medecin;
-    private String date, heure, motif, feedback;
 
-    public RendezVous(Patient patient, Medecin medecin, String date, String heure, String motif) {
+    public RendezVous(String id, String motif, Patient patient, Medecin medecin, LocalDateTime dateHeure) {
+        this.id = id;
+        this.motif = motif;
+        this.dateHeure = dateHeure;
         this.patient = patient;
         this.medecin = medecin;
-        this.date = date;
-        this.heure = heure;
+    }
+
+    public RendezVous(String id, String motif, String feedback, Patient patient, Medecin medecin, LocalDateTime dateHeure) {
+        this.id = id;
         this.motif = motif;
-        this.feedback = "Pas d'avis déposé.";
+        this.dateHeure = dateHeure;
+        this.patient = patient;
+        this.medecin = medecin;
     }
 
-    public Patient getPatient() {
-        return patient;
+    public void enregistrerVisite() {
+        patient.getHistoriqueMedical().ajouterRendezVous(this);
     }
 
-    public Medecin getMedecin() {
-        return medecin;
-    }
-
-    public String getDate() {
-        return date;
-    }
-
-    public void setDate(String date) {
-        this.date = date;
-    }
-
-    public String getHeure() {
-        return heure;
-    }
-
-    public void setHeure(String heure) {
-        this.heure = heure;
-    }
-
-    public String getMotif() {
-        return motif;
-    }
-
-    public String getFeedback() {
-        return feedback;
-    }
-
-    public void setFeedback(String feedback) {
-        this.feedback = feedback;
+    @Override
+    public String toString() {
+        return "Rendez-vous du " + dateHeure.getDayOfMonth() + "/" + dateHeure.getMonthValue() + "/" + dateHeure.getYear() + " à " + dateHeure.getHour() + "h" + dateHeure.getMinute() + " : " + motif + " avec le Dr." + medecin.getNom() + " pour " + patient.getNom();
     }
 }
