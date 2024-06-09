@@ -19,3 +19,17 @@
 ## HistoriqueMedical
 
 - HistoriqueMedical.historiqueRendezVous sera une pile.
+
+## Menus
+
+Espace patient :
+
+- D'abord demander de quel patient il s'agit
+- Prendre rendez-vous
+- Régler facture -> uniquement possible après un rendez-vous
+- Consulter historique médical
+- Donner un avis -> uniquement possible après un rendez-vous et par la personne concernée
+-
+
+Espace médecin :
+  
