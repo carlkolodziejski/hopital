@@ -13,4 +13,11 @@ public interface IHopitalControleur {
      * @param stage La fenêtre de l'application.
      */
     void setStage(Stage stage);
+
+    /**
+     * Permet de définir l'hôpital contrôlé.
+     *
+     * @param hopital L'hôpital contrôlé.
+     */
+    void setHopital(Hopital hopital);
 }
