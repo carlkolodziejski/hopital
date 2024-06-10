@@ -1,5 +1,6 @@
 package fr.univartois.sae.hopital.model;
 
+import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 /**
@@ -19,4 +20,9 @@ public interface IHopitalControleur {
      * @param stage La fenêtre de l'application.
      */
     void setStage(Stage stage);
+
+    /**
+     * Permet de définir la scène précédente.
+     */
+    void setScenePrecedente(Scene scenePrecedente);
 }

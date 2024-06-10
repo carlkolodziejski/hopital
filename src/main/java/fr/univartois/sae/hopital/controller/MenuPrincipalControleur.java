@@ -63,7 +63,7 @@ public class MenuPrincipalControleur implements IHopitalControleur {
 
         MenuMedecinControleur menuMedecinControleur = fxmlLoader.getController();
         menuMedecinControleur.setStage(stage);
-        menuMedecinControleur.setScene(this.stage.getScene());
+        menuMedecinControleur.setScenePrecedente(this.stage.getScene());
         menuMedecinControleur.setHopital(hopital);
 
         Scene scene = new Scene(viewContent);
@@ -108,5 +108,15 @@ public class MenuPrincipalControleur implements IHopitalControleur {
     @Override
     public void setStage(Stage stage) {
         this.stage = stage;
+    }
+
+    /**
+     * Définit la scène précédente.
+     *
+     * @param scenePrecedente La scène précédente.
+     */
+    @Override
+    public void setScenePrecedente(Scene scenePrecedente) {
+        // Ne fait rien car cette vue n'a pas de scène précédente.
     }
 }
