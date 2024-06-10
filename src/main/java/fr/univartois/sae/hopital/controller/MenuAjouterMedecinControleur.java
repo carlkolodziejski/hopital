@@ -47,6 +47,12 @@ public class MenuAjouterMedecinControleur implements IHopitalControleur {
     private TextField champSpecialisation;
 
     /**
+     * Composant représentant le champ de saisie du tarif du médecin.
+     */
+    @FXML
+    private TextField champTarif;
+
+    /**
      * Composant permettant l'affichage d'un message d'erreur.
      */
     @FXML
@@ -61,12 +67,13 @@ public class MenuAjouterMedecinControleur implements IHopitalControleur {
             String id = UUID.randomUUID().toString();
             String nom = champNom.getText();
             String specialisation = champSpecialisation.getText();
-            double tarif = Double.parseDouble(champSpecialisation.getText());
+            double tarif = Double.parseDouble(champTarif.getText());
 
             hopital.ajouterMedecin(new Medecin(id, nom, specialisation, tarif));
 
             champNom.clear();
             champSpecialisation.clear();
+            champTarif.clear();
         } catch (NumberFormatException e) {
             messageErreur.setText("Erreur de saisie sur le tarif.");
         }
