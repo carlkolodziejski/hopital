@@ -35,6 +35,7 @@
                         <DatePicker fx:id="choixDateNaissance"/>
                     </children>
                 </HBox>
+                <Label fx:id="message"/>
             </children>
         </VBox>
     </center>
