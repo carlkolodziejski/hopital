@@ -1,5 +1,6 @@
 package fr.univartois.sae.hopital.model;
 
+import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -63,6 +64,6 @@ public class Hopital {
 
     public List<Personne> rechercheGenerale() {
         // TODO Trouver comment implémenter cette méthode.
-        return java.util.Collections.emptyList();
+        return Collections.emptyList();
     }
 }
