@@ -2,6 +2,7 @@ package fr.univartois.sae.hopital.controller;
 
 import fr.univartois.sae.hopital.model.GroupeSanguin;
 import fr.univartois.sae.hopital.model.Hopital;
+import fr.univartois.sae.hopital.model.IHopitalControleur;
 import fr.univartois.sae.hopital.model.Patient;
 import javafx.beans.binding.Bindings;
 import javafx.fxml.FXML;
@@ -21,7 +22,7 @@ import java.util.UUID;
 /**
  * Classe qui représente le contrôleur du menu d'ajout de patients.
  */
-public class MenuAjouterPatientControleur {
+public class MenuAjouterPatientControleur implements IHopitalControleur {
 
     /**
      * La fenêtre de l'application.
@@ -118,6 +119,7 @@ public class MenuAjouterPatientControleur {
      *
      * @param hopital L'hôpital contrôlé.
      */
+    @Override
     public void setHopital(Hopital hopital) {
         this.hopital = hopital;
     }
@@ -127,6 +129,7 @@ public class MenuAjouterPatientControleur {
      *
      * @param stage La fenêtre de l'application.
      */
+    @Override
     public void setStage(Stage stage) {
         this.stage = stage;
     }
