@@ -27,6 +27,24 @@ public class Hopital {
     }
 
     /**
+     * Ajoute un médecin à la liste des médecins.
+     *
+     * @param medecin Le médecin à ajouter.
+     */
+    public void ajouterMedecin(Medecin medecin) {
+        medecins.add(medecin);
+    }
+
+    /**
+     * Ajoute un patient à la liste des patients.
+     *
+     * @param patient Le patient à ajouter.
+     */
+    public void ajouterPatient(Patient patient) {
+        patients.add(patient);
+    }
+
+    /**
      * Retourne une représentation en chaîne de la liste des médecins.
      *
      * @return Une chaîne représentant la liste des médecins.

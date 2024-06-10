@@ -74,6 +74,9 @@ package model {
     }
 
     class Hopital {
+
+        +ajouterMedecin(medecin: Medecin): void
+        +ajouterPatient(patient: Patient): void
         +afficherMedecins(): String
         +afficherPatients(): String
     }
