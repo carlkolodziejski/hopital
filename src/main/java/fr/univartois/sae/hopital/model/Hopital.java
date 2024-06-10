@@ -134,4 +134,22 @@ public class Hopital {
     public IntegerProperty getNbPersonnes() {
         return nbPersonnes;
     }
+
+    /**
+     * Retourne le nombre de médecins dans l'hôpital.
+     *
+     * @return Le nombre de médecins dans l'hôpital.
+     */
+    public IntegerProperty getNbMedecins() {
+        return new SimpleIntegerProperty(medecins.size());
+    }
+
+    /**
+     * Retourne le nombre de patients dans l'hôpital.
+     *
+     * @return Le nombre de patients dans l'hôpital.
+     */
+    public IntegerProperty getNbPatients() {
+        return new SimpleIntegerProperty(patients.size());
+    }
 }
