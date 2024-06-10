@@ -54,10 +54,13 @@ public class MenuAjouterMedecinControleur implements IHopitalControleur {
     @FXML
     void onAjouterMedecinButtonClick() {
         String id = UUID.randomUUID().toString();
-        System.out.println(id);
         String nom = champNom.getText();
         String specialisation = champSpecialisation.getText();
+
         hopital.ajouterMedecin(new Medecin(id, nom, specialisation));
+        
+        champNom.clear();
+        champSpecialisation.clear();
     }
 
     /**
