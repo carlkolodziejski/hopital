@@ -9,6 +9,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
@@ -46,18 +47,29 @@ public class MenuAjouterMedecinControleur implements IHopitalControleur {
     private TextField champSpecialisation;
 
     /**
+     * Composant permettant l'affichage d'un message d'erreur.
+     */
+    @FXML
+    private Label messageErreur;
+
+    /**
      * Permet d'ajouter le médecin à la liste de médecins si les informations ont été correctement entrées.
      */
     @FXML
     void onAjouterMedecinButtonClick() {
-        String id = UUID.randomUUID().toString();
-        String nom = champNom.getText();
-        String specialisation = champSpecialisation.getText();
+        try {
+            String id = UUID.randomUUID().toString();
+            String nom = champNom.getText();
+            String specialisation = champSpecialisation.getText();
+            double tarif = Double.parseDouble(champSpecialisation.getText());
 
-        hopital.ajouterMedecin(new Medecin(id, nom, specialisation));
+            hopital.ajouterMedecin(new Medecin(id, nom, specialisation, tarif));
 
-        champNom.clear();
-        champSpecialisation.clear();
+            champNom.clear();
+            champSpecialisation.clear();
+        } catch (NumberFormatException e) {
+            messageErreur.setText("Erreur de saisie sur le tarif.");
+        }
     }
 
     /**

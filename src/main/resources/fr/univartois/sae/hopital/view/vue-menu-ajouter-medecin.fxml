@@ -29,6 +29,7 @@
                         <TextField fx:id="champTarif"/>
                     </children>
                 </HBox>
+                <Label fx:id="messageErreur" textFill="RED"/>
             </children>
         </VBox>
     </center>
