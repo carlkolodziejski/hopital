@@ -80,7 +80,7 @@ public class MenuMedecinControleur implements IHopitalControleur {
 
         MenuAfficherMedecinControleur menuAfficherMedecinControleur = fxmlLoader.getController();
         menuAfficherMedecinControleur.setStage(stage);
-        menuAfficherMedecinControleur.setHopital(hopital);
+        menuAfficherMedecinControleur.setListeMedecins(hopital);
         menuAfficherMedecinControleur.setScenePrecedente(stage.getScene());
 
         Scene scene = new Scene(viewContent);
@@ -94,7 +94,7 @@ public class MenuMedecinControleur implements IHopitalControleur {
      */
     @FXML
     void onAjouterMedecinButtonClick(ActionEvent event) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../view/vue-menu-ajout-medecin.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../view/vue-menu-ajouter-medecin.fxml"));
         Parent viewContent = fxmlLoader.load();
 
         MenuAjouterMedecinControleur menuAjoutMedecinControleur = fxmlLoader.getController();
