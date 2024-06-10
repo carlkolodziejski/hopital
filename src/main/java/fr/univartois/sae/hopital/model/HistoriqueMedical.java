@@ -15,6 +15,10 @@ public class HistoriqueMedical {
         this.historiqueRendezVous = new Stack<>();
     }
 
+    public Stack<RendezVous> getHistoriqueRendezVous() {
+        return historiqueRendezVous;
+    }
+
     /**
      * Ajoute un rendez-vous au sommet de la pile.
      *

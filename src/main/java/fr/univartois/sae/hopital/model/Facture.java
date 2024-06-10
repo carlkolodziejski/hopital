@@ -47,12 +47,11 @@ public class Facture {
     /**
      * Détermine le coût total de la facture.
      * Le prix est determiné par le prix d'un rendez-vous multiplié par le nombre de rendez-vous compris dans la facture.
-     *
-     * @return
      */
-    private double calculerCoutTotal() {
-        assert rendezVous != null;
-        return Hopital.PRIX_RENDEZ_VOUS * rendezVous.size();
+    private void calculerCoutTotal() {
+        for (RendezVous rdv : rendezVous) {
+            coutTotal += rdv.getPrix();
+        }
     }
 
     /**

@@ -21,8 +21,8 @@ package model {
 
         +<<constructor>>Patient(id: String, nom: String, prenom: String, dateNaissance: LocalDate)
         +marquerFacturePaye(facture: Facture) : void
-        +afficherEtatFactures(): void
-        +afficherHistoriqueMedical(): void
+        +afficherEtatFactures(): String *
+        +afficherHistoriqueMedical(): String *
     }
 
 
@@ -35,6 +35,7 @@ package model {
     class RendezVous {
         -id: String
         -motif: String
+        -prix: double
         -feedback: String
         -diagnostic: String
         -dateHeure: LocalDateTime
@@ -74,7 +75,6 @@ package model {
     }
 
     class Hopital {
-        +PRIX_RENDEZ_VOUS: double {readOnly}
         +afficherMedecins(): String
         +afficherPatients(): String
     }
