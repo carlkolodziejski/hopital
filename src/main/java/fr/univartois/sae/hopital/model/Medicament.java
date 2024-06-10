@@ -1,5 +1,8 @@
 package fr.univartois.sae.hopital.model;
 
+/**
+ * Classe qui représente un médicament.
+ */
 public class Medicament {
     /**
      * Le nom du médicament.

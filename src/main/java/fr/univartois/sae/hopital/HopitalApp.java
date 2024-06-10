@@ -10,6 +10,13 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
+/**
+ * Classe qui permet d'exécuter l'application de gestion d'un hôpital.
+ *
+ * @author Carl Kolodziejski
+ * @author Clément GOUMZI
+ * @version 0.2.0
+ */
 public class HopitalApp extends Application {
 
     public static void main(String[] args) {

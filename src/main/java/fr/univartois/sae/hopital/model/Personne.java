@@ -1,5 +1,8 @@
 package fr.univartois.sae.hopital.model;
 
+/**
+ * Classe abstraite qui représente une personne.
+ */
 public abstract class Personne {
     /**
      * L'identifiant de la personne.

@@ -3,6 +3,9 @@ package fr.univartois.sae.hopital.model;
 import java.util.LinkedList;
 import java.util.List;
 
+/**
+ * Classe qui représente une facture.
+ */
 public class Facture {
     /**
      * L'identifiant de la facture.

@@ -2,6 +2,9 @@ package fr.univartois.sae.hopital.model;
 
 import java.util.Stack;
 
+/**
+ * Classe qui représente l'historique médical d'un patient.
+ */
 public class HistoriqueMedical {
     /**
      * Pile qui représente l'historique des rendez-vous d'un patient.

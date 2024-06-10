@@ -2,6 +2,9 @@ package fr.univartois.sae.hopital.model;
 
 import java.time.LocalDateTime;
 
+/**
+ * Classe qui représente un rendez-vous.
+ */
 class RendezVous {
     /**
      * L'identifiant du rendez-vous.

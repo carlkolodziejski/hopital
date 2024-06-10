@@ -1,5 +1,8 @@
 package fr.univartois.sae.hopital.model;
 
+/**
+ * Classe qui représente un médecin.
+ */
 public class Medecin extends Personne {
     /**
      * La spécialisation du médecin.

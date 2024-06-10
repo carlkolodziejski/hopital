@@ -3,6 +3,9 @@ package fr.univartois.sae.hopital.model;
 import java.util.LinkedList;
 import java.util.List;
 
+/**
+ * Classe qui représente une ordonnance.
+ */
 public class Ordonnance {
     /**
      * L'identifiant de l'ordonnance.
