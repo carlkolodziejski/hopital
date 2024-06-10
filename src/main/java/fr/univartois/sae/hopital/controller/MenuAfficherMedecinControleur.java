@@ -70,13 +70,13 @@ public class MenuAfficherMedecinControleur implements IHopitalControleur {
     @FXML
     void onRetourButtonClick() throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../view/vue-menu-medecin.fxml"));
-        Parent viewcontent = fxmlLoader.load();
+        Parent viewContent = fxmlLoader.load();
 
         MenuMedecinControleur menuMedecinControleur = fxmlLoader.getController();
         menuMedecinControleur.setStage(stage);
         menuMedecinControleur.setHopital(hopital);
 
-        Scene scene = new Scene(viewcontent);
+        Scene scene = new Scene(viewContent);
         stage.setScene(scene);
     }
 
