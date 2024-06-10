@@ -5,13 +5,13 @@ import java.time.LocalDateTime;
 class RendezVous {
     private String id;
     private String motif;
+    private double prix;
     private String feedback;
     private String diagnostic;
     private LocalDateTime dateHeure;
     private Ordonnance ordonnance;
     private Patient patient;
     private Medecin medecin;
-
     public RendezVous(String id, String motif, Patient patient, Medecin medecin, LocalDateTime dateHeure) {
         this.id = id;
         this.motif = motif;
@@ -26,6 +26,10 @@ class RendezVous {
         this.dateHeure = dateHeure;
         this.patient = patient;
         this.medecin = medecin;
+    }
+
+    public double getPrix() {
+        return prix;
     }
 
     public void enregistrerVisite() {

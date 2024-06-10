@@ -49,8 +49,9 @@ public class Facture {
      * Le prix est determiné par le prix d'un rendez-vous multiplié par le nombre de rendez-vous compris dans la facture.
      */
     private void calculerCoutTotal() {
-        assert rendezVous != null;
-        return PRIX_RENDEZ_VOUS * rendezVous.size();
+        for (RendezVous rdv : rendezVous) {
+            coutTotal += rdv.getPrix();
+        }
     }
 
     /**

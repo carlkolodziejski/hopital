@@ -35,6 +35,7 @@ package model {
     class RendezVous {
         -id: String
         -motif: String
+        -prix: double
         -feedback: String
         -diagnostic: String
         -dateHeure: LocalDateTime
@@ -74,7 +75,6 @@ package model {
     }
 
     class Hopital {
-        +PRIX_RENDEZ_VOUS: double {readOnly}
         +afficherMedecins(): String
         +afficherPatients(): String
     }
