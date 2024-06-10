@@ -1,105 +1,47 @@
 package fr.univartois.sae.hopital.model;
 
+import java.time.LocalDate;
+import java.util.LinkedList;
+import java.util.List;
+
 public class Patient extends Personne {
-    private final int NOMBRE_MAX_FACTURES;
-    private HistoriqueMedical historiqueMedical;
-    private GroupeSanguin groupeSanguin;
-    private String adresse;
-    private String nom;
+    private LocalDate dateNaissance;
     private String prenom;
-    private int numTel, age;
-    private Facture[] listeFactures;
-    private int nombreFactures;
+    private List<Facture> factures;
+    private GroupeSanguin groupeSanguin;
+    private HistoriqueMedical historiqueMedical;
 
-    public Patient(String nom, String prenom, String numTel, int age, String adresse, GroupeSanguin groupeSanguin) {
-        super(nom, prenom, numTel, age);
-        this.adresse = adresse;
+    public Patient(String id, String nom, String prenom, GroupeSanguin groupeSanguin, LocalDate dateNaissance) {
+        super(id, nom);
+        this.prenom = prenom;
         this.groupeSanguin = groupeSanguin;
-        NOMBRE_MAX_FACTURES = 100;
-        listeFactures = new Facture[NOMBRE_MAX_FACTURES];
-        nombreFactures = 0;
+        this.factures = new LinkedList<>();
+        this.dateNaissance = dateNaissance;
         this.historiqueMedical = new HistoriqueMedical();
-    }
-
-    public void ajouterAvis(RendezVous rendezVous, String feedback) {
-        if (rendezVous.getPatient() == this) {
-            rendezVous.setFeedback(feedback);
-        } else {
-            System.out.println("Vous n'avez pas assisté à ce rendez-vous.");
-        }
-    }
-
-    public Facture[] getListeFactures() {
-        return listeFactures;
-    }
-
-    public int getNombreFactures() {
-        return nombreFactures;
-    }
-
-    public void incrementerNombreFactures() {
-        nombreFactures++;
-    }
-
-    public void decrementerNombreFactures() {
-        nombreFactures--;
-    }
-
-    public GroupeSanguin getGroupeSanguin() {
-        return groupeSanguin;
-    }
-
-    public String getAdresse() {
-        return adresse;
-    }
-
-    public void setAdresse(String adresse) {
-        this.adresse = adresse;
-    }
-
-    public int getNOMBRE_MAX_FACTURES() {
-        return NOMBRE_MAX_FACTURES;
-    }
-
-    public String toString() {
-        return getNom() + " " + getPrenom() + " : " + afficherAge() + ", " + groupeSanguin + ", " + adresse + ", " + getNumTel();
     }
 
     public void marquerFacturePayee(Facture facture) {
         facture.setPayee(true);
-        System.out.println("La facture pour la consultation du " + facture.getDateConsultation() + " a été marquée comme payée.");
     }
 
-    public void afficherEtatFactures() {
-        System.out.println("État des factures :");
-        for (int i = 0; i < this.getNombreFactures(); i++) {
-            String statut = this.getListeFactures()[i].isPayee() ? "Payée" : "Non payée"; // Si vrai, retourne "Payée", sinon retourne "Non payée".
-            System.out.println((i + 1) + " - Patient : " + this.getListeFactures()[i].getPatient().getNom() + ", Médecin : " + this.getListeFactures()[i].getMedecin().getNom() +
-                    ", Date : " + this.getListeFactures()[i].getDateConsultation() + ", Montant : " + this.getListeFactures()[i].getMontantTotal() + " - Statut : "
-                    + statut);
+    public List<String> afficherEtatFactures() {
+        List<String> etatFactures = new LinkedList<>();
+        for (Facture facture : factures) {
+            etatFactures.add(facture.toString());
         }
+        return etatFactures;
     }
 
-    public HistoriqueMedical getHistoriqueMedical() {
-        return historiqueMedical;
-    }
-
-    public void enregistrerVisite(RendezVous visite, String diagnostic, Ordonnance traitement) {
-        if (historiqueMedical.getNombreVisites() < historiqueMedical.getVisites().length) {
-            historiqueMedical.getVisites()[historiqueMedical.getNombreVisites() % historiqueMedical.getTAILLE_MAX()] = visite;
-            historiqueMedical.getDiagnostics()[historiqueMedical.getNombreVisites() % historiqueMedical.getTAILLE_MAX()] = diagnostic;
-            historiqueMedical.getTraitements()[historiqueMedical.getNombreVisites() % historiqueMedical.getTAILLE_MAX()] = traitement;
-            historiqueMedical.incrementerNombreVisites();
+    public List<String> afficherHistoriqueMedical() {
+        List<String> historique = new LinkedList<>();
+        for (RendezVous rendezVous : historiqueMedical.getHistoriqueRendezVous()) {
+            historique.add(rendezVous.toString());
         }
+        return historique;
     }
 
-    public void afficherHistorique() {
-        System.out.println("Historique médical :");
-        for (int i = 0; i < historiqueMedical.getNombreVisites(); i++) {
-            System.out.println("Visite " + (i + 1) + " : ");
-            System.out.println("Diagnostic : " + historiqueMedical.getDiagnostics()[i]);
-            System.out.println("Traitement : " + historiqueMedical.getTraitements()[i]);
-            System.out.println();
-        }
+    @Override
+    public String toString() {
+        return "";
     }
 }
