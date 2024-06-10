@@ -13,9 +13,25 @@ import java.util.List;
  * Classe qui représente un hôpital.
  */
 public class Hopital {
+    /**
+     * La liste des médecins de l'hôpital.
+     */
     private ObservableList<Medecin> medecins;
+
+    /**
+     * La liste des patients de l'hôpital.
+     */
     private ObservableList<Patient> patients;
+
+    /**
+     * Le nombre de personnes dans l'hôpital.
+     */
     private IntegerProperty nbPersonnes;
+
+    /**
+     * Le patient sélectionné sur lequel seront effectuées les prochaines opérations.
+     */
+    private Patient patientCourant;
 
     /**
      * Constructeur de la classe Hopital.
@@ -24,6 +40,9 @@ public class Hopital {
         this.medecins = FXCollections.observableArrayList();
         this.patients = FXCollections.observableArrayList();
         this.nbPersonnes = new SimpleIntegerProperty(0);
+        this.patientCourant = null;
+
+        // Cet écouteur permet de mettre à jour le nombre de personnes dans l'hôpital à chaque fois que la taille de la liste des médecins ou des patients change.
         ListChangeListener<Personne> listener = change -> updateNbPersonnes();
     }
 
@@ -170,5 +189,23 @@ public class Hopital {
      */
     public IntegerProperty getNbPatients() {
         return new SimpleIntegerProperty(patients.size());
+    }
+
+    /**
+     * Retourne le patient sélectionné.
+     *
+     * @return Le patient sélectionné.
+     */
+    public Patient getPatientCourant() {
+        return patientCourant;
+    }
+
+    /**
+     * Définit le patient sélectionné.
+     *
+     * @param patientCourant Le patient sélectionné.
+     */
+    public void setPatientCourant(Patient patientCourant) {
+        this.patientCourant = patientCourant;
     }
 }
