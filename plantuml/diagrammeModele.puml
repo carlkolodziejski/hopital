@@ -41,7 +41,6 @@ package model {
         -dateHeure: LocalDateTime
 
         +<<constructor>>RendezVous(id: String, patient: Patient, motif: int, medecin: Medecin, dateHeure: LocalDateTime)
-        +<<constructor>>RendezVous(id: String, patient: Patient, motif: int, feedback: String, diagnostic: String, medecin: Medecin, dateHeure: LocalDateTime)
         +toString(): String
         +enregistrerVisite(): void
     }
