@@ -39,7 +39,7 @@ public class MenuPrincipalControleur implements IHopitalControleur {
      */
     @FXML
     void onChercherButtonClick() throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../view/vue-menu-recherche.fxml"));
+       /* FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../view/vue-menu-recherche.fxml"));
         Parent viewContent = fxmlLoader.load();
 
         MenuRechercheControleur menuRechercheControleur = fxmlLoader.getController();
@@ -48,7 +48,7 @@ public class MenuPrincipalControleur implements IHopitalControleur {
         menuRechercheControleur.setHopital(hopital);
 
         Scene scene = new Scene(viewContent);
-        stage.setScene(scene);
+        stage.setScene(scene);*/
     }
 
     /**
@@ -63,7 +63,6 @@ public class MenuPrincipalControleur implements IHopitalControleur {
 
         MenuMedecinControleur menuMedecinControleur = fxmlLoader.getController();
         menuMedecinControleur.setStage(stage);
-        menuMedecinControleur.setScenePrecedente(this.stage.getScene());
         menuMedecinControleur.setHopital(hopital);
 
         Scene scene = new Scene(viewContent);
@@ -77,7 +76,7 @@ public class MenuPrincipalControleur implements IHopitalControleur {
      */
     @FXML
     void onPatientButtonClick() throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../view/vue-menu-patient.fxml"));
+        /*FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../view/vue-menu-patient.fxml"));
         Parent viewContent = fxmlLoader.load();
 
         MenuPatientControleur menuPatientControleur = fxmlLoader.getController();
@@ -86,7 +85,7 @@ public class MenuPrincipalControleur implements IHopitalControleur {
         menuPatientControleur.setHopital(hopital);
 
         Scene scene = new Scene(viewContent);
-        stage.setScene(scene);
+        stage.setScene(scene);*/
     }
 
     /**
@@ -108,15 +107,5 @@ public class MenuPrincipalControleur implements IHopitalControleur {
     @Override
     public void setStage(Stage stage) {
         this.stage = stage;
-    }
-
-    /**
-     * Définit la scène précédente.
-     *
-     * @param scenePrecedente La scène précédente.
-     */
-    @Override
-    public void setScenePrecedente(Scene scenePrecedente) {
-        // Ne fait rien car cette vue n'a pas de scène précédente.
     }
 }

@@ -27,11 +27,6 @@ public class MenuMedecinControleur implements IHopitalControleur {
     private Stage stage;
 
     /**
-     * La scène précédente.
-     */
-    private Scene scenePrecedente;
-
-    /**
      * Composant représentant le bouton d'ajout de médecin.
      */
     @FXML
@@ -42,6 +37,7 @@ public class MenuMedecinControleur implements IHopitalControleur {
      *
      * @param hopital L'hôpital contrôlé.
      */
+    @Override
     public void setHopital(Hopital hopital) {
         this.hopital = hopital;
 
@@ -59,16 +55,6 @@ public class MenuMedecinControleur implements IHopitalControleur {
     }
 
     /**
-     * Permet de définir la scène précédente.
-     *
-     * @param scenePrecedente
-     */
-    @Override
-    public void setScenePrecedente(Scene scenePrecedente) {
-        this.scenePrecedente = scenePrecedente;
-    }
-
-    /**
      * Renvoie l'utilisateur sur le menu d'affichages des médecins.
      *
      * @throws IOException Si le fichier FXML n'est pas trouvé.
@@ -80,8 +66,8 @@ public class MenuMedecinControleur implements IHopitalControleur {
 
         MenuAfficherMedecinControleur menuAfficherMedecinControleur = fxmlLoader.getController();
         menuAfficherMedecinControleur.setStage(stage);
-        menuAfficherMedecinControleur.setListeMedecins(hopital);
-        menuAfficherMedecinControleur.setScenePrecedente(stage.getScene());
+        menuAfficherMedecinControleur.setHopital(hopital);
+        menuAfficherMedecinControleur.setListeMedecins();
 
         Scene scene = new Scene(viewContent);
         stage.setScene(scene);
@@ -99,7 +85,6 @@ public class MenuMedecinControleur implements IHopitalControleur {
 
         MenuAjouterMedecinControleur menuAjoutMedecinControleur = fxmlLoader.getController();
         menuAjoutMedecinControleur.setStage(stage);
-        menuAjoutMedecinControleur.setScenePrecedente(this.stage.getScene());
         menuAjoutMedecinControleur.setHopital(hopital);
 
         Scene scene = new Scene(viewContent);
@@ -110,9 +95,15 @@ public class MenuMedecinControleur implements IHopitalControleur {
      * Renvoie l'utilisateur sur le menu principal.
      */
     @FXML
-    void onRetourButtonClick() {
-        stage.setScene(scenePrecedente);
+    void onRetourButtonClick() throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../view/vue-menu-principal.fxml"));
+        Parent viewContent = fxmlLoader.load();
+
+        MenuPrincipalControleur menuPrincipalControleur = fxmlLoader.getController();
+        menuPrincipalControleur.setStage(stage);
+        menuPrincipalControleur.setHopital(hopital);
+
+        Scene scene = new Scene(viewContent);
+        stage.setScene(scene);
     }
-
-
 }

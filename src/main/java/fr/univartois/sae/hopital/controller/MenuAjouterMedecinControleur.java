@@ -6,11 +6,14 @@ import fr.univartois.sae.hopital.model.Medecin;
 import javafx.beans.binding.Bindings;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.util.UUID;
 
 public class MenuAjouterMedecinControleur implements IHopitalControleur {
@@ -24,11 +27,6 @@ public class MenuAjouterMedecinControleur implements IHopitalControleur {
      * La fenêtre de l'application.
      */
     private Stage stage;
-
-    /**
-     * La scène précédente.
-     */
-    private Scene scenePrecedente;
 
     /**
      * Composant représentant le bouton d'ajout de médecin.
@@ -58,7 +56,7 @@ public class MenuAjouterMedecinControleur implements IHopitalControleur {
         String specialisation = champSpecialisation.getText();
 
         hopital.ajouterMedecin(new Medecin(id, nom, specialisation));
-        
+
         champNom.clear();
         champSpecialisation.clear();
     }
@@ -67,8 +65,16 @@ public class MenuAjouterMedecinControleur implements IHopitalControleur {
      * Permet de retourner à la scène précédente.
      */
     @FXML
-    void onRetourButtonClick(ActionEvent event) {
-        stage.setScene(scenePrecedente);
+    void onRetourButtonClick(ActionEvent event) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../view/vue-menu-medecin.fxml"));
+        Parent viewContent = fxmlLoader.load();
+
+        MenuMedecinControleur menuMedecinControleur = fxmlLoader.getController();
+        menuMedecinControleur.setStage(stage);
+        menuMedecinControleur.setHopital(hopital);
+
+        Scene scene = new Scene(viewContent);
+        stage.setScene(scene);
     }
 
     /**
@@ -76,6 +82,7 @@ public class MenuAjouterMedecinControleur implements IHopitalControleur {
      *
      * @param hopital L'hôpital contrôlé.
      */
+    @Override
     public void setHopital(Hopital hopital) {
         this.hopital = hopital;
     }
@@ -88,16 +95,6 @@ public class MenuAjouterMedecinControleur implements IHopitalControleur {
     @Override
     public void setStage(Stage stage) {
         this.stage = stage;
-    }
-
-    /**
-     * Définit la scène précédente.
-     *
-     * @param scenePrecedente La scène précédente.
-     */
-    @Override
-    public void setScenePrecedente(Scene scenePrecedente) {
-        this.scenePrecedente = scenePrecedente;
     }
 
     /**
