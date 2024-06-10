@@ -73,7 +73,6 @@ public class MenuAjouterMedecinControleur implements IHopitalControleur {
      *
      * @param hopital L'hôpital contrôlé.
      */
-    @Override
     public void setHopital(Hopital hopital) {
         this.hopital = hopital;
     }

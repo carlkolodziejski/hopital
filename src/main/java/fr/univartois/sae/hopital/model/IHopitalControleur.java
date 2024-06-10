@@ -7,12 +7,6 @@ import javafx.stage.Stage;
  * Interface que doivent implémenter les contrôleurs de l'application.
  */
 public interface IHopitalControleur {
-    /**
-     * Permet de définir l'hôpital contrôlé.
-     *
-     * @param hopital L'hôpital contrôlé.
-     */
-    void setHopital(Hopital hopital);
 
     /**
      * Permet de définir la fenêtre de l'application.

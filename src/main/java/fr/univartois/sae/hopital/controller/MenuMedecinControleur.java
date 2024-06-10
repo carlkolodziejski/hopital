@@ -42,7 +42,6 @@ public class MenuMedecinControleur implements IHopitalControleur {
      *
      * @param hopital L'hôpital contrôlé.
      */
-    @Override
     public void setHopital(Hopital hopital) {
         this.hopital = hopital;
 
@@ -72,11 +71,11 @@ public class MenuMedecinControleur implements IHopitalControleur {
     /**
      * Renvoie l'utilisateur sur le menu d'affichages des médecins.
      *
-     * @throws IOException
+     * @throws IOException Si le fichier FXML n'est pas trouvé.
      */
     @FXML
     void onAfficherMedecinButtonClick(ActionEvent event) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../view/vue-medecin.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../view/vue-menu-afficher-medecin.fxml"));
         Parent viewContent = fxmlLoader.load();
 
         MenuAfficherMedecinControleur menuAfficherMedecinControleur = fxmlLoader.getController();
@@ -91,7 +90,7 @@ public class MenuMedecinControleur implements IHopitalControleur {
     /**
      * Renvoie l'utilisateur sur le menu d'ajout de médecin.
      *
-     * @throws IOException
+     * @throws IOException Si le fichier FXML n'est pas trouvé.
      */
     @FXML
     void onAjouterMedecinButtonClick(ActionEvent event) throws IOException {
