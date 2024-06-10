@@ -10,15 +10,21 @@ public class Medecin extends Personne {
     private String specialisation;
 
     /**
+     * Prix de la consultation.
+     */
+    private double tarif;
+
+    /**
      * Le constructeur de la classe Medecin.
      *
      * @param id             L'identifiant du médecin.
      * @param nom            Le nom du médecin.
      * @param specialisation La spécialisation du médecin.
      */
-    public Medecin(String id, String nom, String specialisation) {
+    public Medecin(String id, String nom, String specialisation, double tarif) {
         super(id, nom);
         this.specialisation = specialisation;
+        this.tarif = tarif;
     }
 
     /**
@@ -47,5 +53,9 @@ public class Medecin extends Personne {
     @Override
     public String toString() {
         return "Dr. " + getNom() + " : " + getSpecialisation();
+    }
+
+    public double getTarif() {
+        return tarif;
     }
 }
