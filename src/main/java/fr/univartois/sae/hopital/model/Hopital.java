@@ -4,7 +4,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class Hopital {
-    private final double PRIX_RENDEZ_VOUS;
+    public final double PRIX_RENDEZ_VOUS;
     private List<Medecin> medecins;
     private List<Patient> patients;
 
