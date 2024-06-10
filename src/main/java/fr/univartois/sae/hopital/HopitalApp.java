@@ -20,15 +20,15 @@ public class HopitalApp extends Application {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("./view/vue-menu-principal.fxml"));
         Parent viewContent = fxmlLoader.load();
 
-        MenuPrincipalControleur controleur = fxmlLoader.getController();
-        controleur.setStage(stage);
+        MenuPrincipalControleur menuPrincipalControleur = fxmlLoader.getController();
+        menuPrincipalControleur.setStage(stage);
 
         Scene scene = new Scene(viewContent, 1280, 720);
         stage.setScene(scene);
 
         Hopital hopital = new Hopital();
-        controleur.setHopital(hopital);
-        
+        menuPrincipalControleur.setHopital(hopital);
+
         stage.setTitle("Mon hôpital");
 
         stage.show();
