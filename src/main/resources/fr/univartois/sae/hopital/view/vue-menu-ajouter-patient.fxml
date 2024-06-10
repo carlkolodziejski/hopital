@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+<BorderPane xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/21"
+            fx:controller="fr.univartois.sae.hopital.controller.MenuAjouterPatientControleur">
+    <center>
+        <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
+              prefHeight="400.0" prefWidth="600.0" spacing="20.0">
+            <children>
+                <HBox alignment="CENTER" layoutX="10.0" layoutY="175.0">
+                    <children>
+                        <Label text="Prénom : "/>
+                        <TextField fx:id="champPrenom"/>
+                    </children>
+                </HBox>
+                <HBox alignment="CENTER">
+                    <children>
+                        <Label text="Nom : "/>
+                        <TextField fx:id="champNom"/>
+                    </children>
+                </HBox>
+                <HBox alignment="CENTER" layoutX="10.0" layoutY="220.0">
+                    <children>
+                        <Label text="Groupe sanguin : "/>
+                        <ChoiceBox fx:id="choixGroupeSanguin" prefWidth="150.0"/>
+                    </children>
+                </HBox>
+                <HBox alignment="CENTER" layoutX="10.0" layoutY="243.0">
+                    <children>
+                        <Label text="Date de naissance : "/>
+                        <DatePicker fx:id="choixDateNaissance"/>
+                    </children>
+                </HBox>
+            </children>
+        </VBox>
+    </center>
+    <top>
+        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #dcdcdc;"
+              BorderPane.alignment="CENTER_LEFT">
+            <children>
+                <Label text="Ajouter un patient" textAlignment="CENTER">
+                    <font>
+                        <Font size="30.0"/>
+                    </font>
+                </Label>
+            </children>
+        </HBox>
+    </top>
+    <bottom>
+        <HBox alignment="BOTTOM_CENTER" BorderPane.alignment="CENTER">
+            <children>
+                <Button mnemonicParsing="false" onAction="#onRetourButtonClick" style="-fx-border-color: red;"
+                        text="Retour">
+                    <HBox.margin>
+                        <Insets bottom="10.0" left="10.0"/>
+                    </HBox.margin>
+                </Button>
+                <Region prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS"/>
+                <Button fx:id="boutonAjouterPatient" disable="true" mnemonicParsing="false"
+                        onAction="#onAjouterPatientButtonClick" text="Ajouter le patient">
+                    <HBox.margin>
+                        <Insets bottom="10.0" right="10.0"/>
+                    </HBox.margin>
+                </Button>
+            </children>
+        </HBox>
+    </bottom>
+</BorderPane>
