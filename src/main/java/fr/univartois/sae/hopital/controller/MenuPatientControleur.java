@@ -58,6 +58,7 @@ public class MenuPatientControleur implements IHopitalControleur {
         MenuSelectionnerPatientControleur selectionnerPatientControleur = fxmlLoader.getController();
         selectionnerPatientControleur.setStage(stage);
         selectionnerPatientControleur.setHopital(hopital);
+        selectionnerPatientControleur.setListePatients();
 
         Scene scene = new Scene(viewContent);
         stage.setScene(scene);
