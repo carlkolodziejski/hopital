@@ -9,10 +9,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -65,6 +62,12 @@ public class MenuAjouterPatientControleur implements IHopitalControleur {
     private ChoiceBox<GroupeSanguin> choixGroupeSanguin;
 
     /**
+     * Le composant permettant l'affichage d'un message.
+     */
+    @FXML
+    private Label message;
+
+    /**
      * Permet d'ajouter le patient à la liste de patients si les informations ont été correctement entrées.
      */
     @FXML
@@ -77,10 +80,16 @@ public class MenuAjouterPatientControleur implements IHopitalControleur {
 
         hopital.ajouterPatient(new Patient(id, nom, prenom, groupeSanguin, dateNaissance));
 
+        validerAjout();
+    }
+
+    private void validerAjout() {
         champNom.clear();
         champPrenom.clear();
         choixDateNaissance.setValue(null);
         choixGroupeSanguin.setValue(null);
+        message.setText("Patient ajouté avec succès.");
+        message.setStyle("-fx-text-fill: green");
     }
 
     /**

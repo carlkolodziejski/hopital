@@ -56,7 +56,7 @@ public class MenuAjouterMedecinControleur implements IHopitalControleur {
      * Composant permettant l'affichage d'un message d'erreur.
      */
     @FXML
-    private Label messageErreur;
+    private Label message;
 
     /**
      * Permet d'ajouter le médecin à la liste de médecins si les informations ont été correctement entrées.
@@ -71,12 +71,18 @@ public class MenuAjouterMedecinControleur implements IHopitalControleur {
 
             hopital.ajouterMedecin(new Medecin(id, nom, specialisation, tarif));
 
-            champNom.clear();
-            champSpecialisation.clear();
-            champTarif.clear();
+            validerAjout();
         } catch (NumberFormatException e) {
-            messageErreur.setText("Erreur de saisie sur le tarif.");
+            message.setText("Erreur de saisie sur le tarif.");
         }
+    }
+
+    private void validerAjout() {
+        champNom.clear();
+        champSpecialisation.clear();
+        champTarif.clear();
+        message.setText("Le médecin a bien été ajouté.");
+        message.setStyle("-fx-text-fill: green");
     }
 
     /**

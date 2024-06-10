@@ -38,7 +38,7 @@
                                    prefWidth="40.0" promptText="MM"/>
                     </children>
                 </HBox>
-                <Label fx:id="messageErreur" textFill="RED"/>
+                <Label fx:id="message" textFill="RED"/>
             </children>
         </VBox>
     </center>
