@@ -1,15 +1,21 @@
 package fr.univartois.sae.hopital.model;
 
+import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.SimpleListProperty;
+import javafx.collections.ListChangeListener;
+
 import java.util.LinkedList;
 import java.util.List;
 
 public class Hopital {
-    private List<Medecin> medecins;
-    private List<Patient> patients;
+    private SimpleListProperty<Medecin> medecins;
+    private SimpleListProperty<Patient> patients;
+    private IntegerProperty nbPersonnes;
 
-    public Hopital(double PRIX_RENDEZ_VOUS) {
-        this.medecins = new LinkedList<>();
-        this.patients = new LinkedList<>();
+    public Hopital() {
+        this.medecins = new SimpleListProperty<>();
+        this.patients = new SimpleListProperty<>();
+        ListChangeListener<Personne> listener = change -> updateNbPersonnes();
     }
 
     public String afficherMedecins() {
@@ -58,5 +64,21 @@ public class Hopital {
     public List<Personne> rechercheGenerale() {
         // TODO Trouver comment implémenter cette méthode.
         return java.util.Collections.emptyList();
+    }
+
+    public List<Medecin> medecinsSimpleListProperty() {
+        return medecins;
+    }
+
+    public SimpleListProperty<Patient> patientSimpleListProperty() {
+        return patients;
+    }
+
+    public void updateNbPersonnes() {
+        nbPersonnes.set(medecins.size() + patients.size());
+    }
+
+    public IntegerProperty getNbPersonnes() {
+        return nbPersonnes;
     }
 }
