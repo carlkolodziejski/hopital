@@ -75,8 +75,8 @@ package model {
 
     class Hopital {
         +PRIX_RENDEZ_VOUS: double {readOnly}
-        +afficherMedecins(): void
-        +afficherPatients(): void
+        +afficherMedecins(): String
+        +afficherPatients(): String
     }
 
     class HistoriqueMedical {
