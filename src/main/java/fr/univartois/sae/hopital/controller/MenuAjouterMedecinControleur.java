@@ -4,7 +4,6 @@ import fr.univartois.sae.hopital.model.Hopital;
 import fr.univartois.sae.hopital.model.IHopitalControleur;
 import fr.univartois.sae.hopital.model.Medecin;
 import javafx.beans.binding.Bindings;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -65,7 +64,7 @@ public class MenuAjouterMedecinControleur implements IHopitalControleur {
      * Permet de retourner à la scène précédente.
      */
     @FXML
-    void onRetourButtonClick(ActionEvent event) throws IOException {
+    void onRetourButtonClick() throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../view/vue-menu-medecin.fxml"));
         Parent viewContent = fxmlLoader.load();
 

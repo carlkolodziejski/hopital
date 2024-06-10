@@ -35,7 +35,7 @@ public class MenuPrincipalControleur implements IHopitalControleur {
     /**
      * Renvoie l'utilisateur sur le menu de recherche.
      *
-     * @throws IOException
+     * @throws IOException Si le fichier FXML n'est pas trouvé.
      */
     @FXML
     void onChercherButtonClick() throws IOException {
@@ -54,7 +54,7 @@ public class MenuPrincipalControleur implements IHopitalControleur {
     /**
      * Renvoie l'utilisateur sur le menu de gestion des médecins.
      *
-     * @throws IOException
+     * @throws IOException Si le fichier FXML n'est pas trouvé.
      */
     @FXML
     void onMedecinButtonClick() throws IOException {
@@ -72,20 +72,19 @@ public class MenuPrincipalControleur implements IHopitalControleur {
     /**
      * Renvoie l'utilisateur sur le menu de gestion des patients.
      *
-     * @throws IOException
+     * @throws IOException Si le fichier FXML n'est pas trouvé.
      */
     @FXML
     void onPatientButtonClick() throws IOException {
-        /*FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../view/vue-menu-patient.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../view/vue-menu-patient.fxml"));
         Parent viewContent = fxmlLoader.load();
 
         MenuPatientControleur menuPatientControleur = fxmlLoader.getController();
         menuPatientControleur.setStage(stage);
-        menuPatientControleur.setScene(this.stage.getScene());
         menuPatientControleur.setHopital(hopital);
 
         Scene scene = new Scene(viewContent);
-        stage.setScene(scene);*/
+        stage.setScene(scene);
     }
 
     /**

@@ -2,7 +2,6 @@ package fr.univartois.sae.hopital.controller;
 
 import fr.univartois.sae.hopital.model.Hopital;
 import fr.univartois.sae.hopital.model.IHopitalControleur;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -13,7 +12,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 /**
- * Classe qui représente le contrôleur du menu médecin.
+ * Classe qui représente le contrôleur du menu médecins.
  */
 public class MenuMedecinControleur implements IHopitalControleur {
     /**
@@ -60,7 +59,7 @@ public class MenuMedecinControleur implements IHopitalControleur {
      * @throws IOException Si le fichier FXML n'est pas trouvé.
      */
     @FXML
-    void onAfficherMedecinButtonClick(ActionEvent event) throws IOException {
+    void onAfficherMedecinsButtonClick() throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../view/vue-menu-afficher-medecin.fxml"));
         Parent viewContent = fxmlLoader.load();
 
@@ -79,7 +78,7 @@ public class MenuMedecinControleur implements IHopitalControleur {
      * @throws IOException Si le fichier FXML n'est pas trouvé.
      */
     @FXML
-    void onAjouterMedecinButtonClick(ActionEvent event) throws IOException {
+    void onAjouterMedecinButtonClick() throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../view/vue-menu-ajouter-medecin.fxml"));
         Parent viewContent = fxmlLoader.load();
 

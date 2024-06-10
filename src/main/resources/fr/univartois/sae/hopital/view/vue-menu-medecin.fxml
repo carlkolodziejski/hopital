@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 <BorderPane xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/11.0.14-internal"
-            fx:controller="fr.univartois.sae.hopital.controller.MenuPatientControleur">
+            fx:controller="fr.univartois.sae.hopital.controller.MenuMedecinControleur">
     <center>
         <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
               prefHeight="400.0" prefWidth="600.0" spacing="50.0">
