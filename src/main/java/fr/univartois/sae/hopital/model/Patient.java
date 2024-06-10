@@ -33,9 +33,18 @@ public class Patient extends Personne {
     }
 
     /**
+     * Retourne la date de naissance du patient.
+     *
+     * @return La date de naissance du patient.
+     */
+    public HistoriqueMedical getHistoriqueMedical() {
+        return historiqueMedical;
+    }
+
+    /**
      * Marque une facture comme payée.
      *
-     * @param facture
+     * @param facture La facture à marquer comme payée.
      */
     public void marquerFacturePayee(Facture facture) {
         facture.setPayee(true);
