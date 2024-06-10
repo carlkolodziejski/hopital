@@ -52,7 +52,7 @@ public class MenuPatientControleur implements IHopitalControleur {
      */
     @FXML
     void onGererPatientsButtonClick() throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../view/vue-menu-gestion-patients.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../view/vue-menu-selection-patient.fxml"));
         Parent viewContent = fxmlLoader.load();
 
         MenuSelectionnerPatientControleur selectionnerPatientControleur = fxmlLoader.getController();
