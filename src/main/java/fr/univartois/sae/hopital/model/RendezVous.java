@@ -5,7 +5,7 @@ import java.time.LocalDateTime;
 /**
  * Classe qui représente un rendez-vous.
  */
-class RendezVous {
+public class RendezVous {
     /**
      * L'identifiant du rendez-vous.
      */
