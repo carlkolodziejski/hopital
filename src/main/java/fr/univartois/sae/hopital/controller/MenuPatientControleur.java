@@ -55,9 +55,9 @@ public class MenuPatientControleur implements IHopitalControleur {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../view/vue-menu-gestion-patients.fxml"));
         Parent viewContent = fxmlLoader.load();
 
-        GererPatientsControleur gererPatientsControleur = fxmlLoader.getController();
-        gererPatientsControleur.setStage(stage);
-        gererPatientsControleur.setHopital(hopital);
+        MenuSelectionnerPatientControleur selectionnerPatientControleur = fxmlLoader.getController();
+        selectionnerPatientControleur.setStage(stage);
+        selectionnerPatientControleur.setHopital(hopital);
 
         Scene scene = new Scene(viewContent);
         stage.setScene(scene);
