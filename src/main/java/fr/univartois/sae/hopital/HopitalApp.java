@@ -1,6 +1,7 @@
 package fr.univartois.sae.hopital;
 
 import fr.univartois.sae.hopital.controller.MenuPrincipalControleur;
+import fr.univartois.sae.hopital.model.Hopital;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -25,6 +26,9 @@ public class HopitalApp extends Application {
         Scene scene = new Scene(viewContent, 1280, 720);
         stage.setScene(scene);
 
+        Hopital hopital = new Hopital();
+        controleur.setHopital(hopital);
+        
         stage.setTitle("Mon hôpital");
 
         stage.show();

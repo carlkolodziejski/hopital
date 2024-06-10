@@ -33,6 +33,8 @@ public class MenuPrincipalControleur implements IHopitalControleur {
 
     public void setHopital(Hopital hopital) {
         this.hopital = hopital;
+
+        boutonChercher.disableProperty().bind(hopital.getNbPersonnes().isEqualTo(0));
     }
 
     @Override

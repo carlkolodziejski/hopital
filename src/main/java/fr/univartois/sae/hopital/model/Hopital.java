@@ -1,6 +1,7 @@
 package fr.univartois.sae.hopital.model;
 
 import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleListProperty;
 import javafx.collections.ListChangeListener;
 
@@ -15,6 +16,7 @@ public class Hopital {
     public Hopital() {
         this.medecins = new SimpleListProperty<>();
         this.patients = new SimpleListProperty<>();
+        this.nbPersonnes = new SimpleIntegerProperty(0);
         ListChangeListener<Personne> listener = change -> updateNbPersonnes();
     }
 
