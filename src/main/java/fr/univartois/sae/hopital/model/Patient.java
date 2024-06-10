@@ -4,6 +4,9 @@ import java.time.LocalDate;
 import java.util.LinkedList;
 import java.util.List;
 
+/**
+ * Classe qui représente un patient.
+ */
 public class Patient extends Personne {
     private LocalDate dateNaissance;
     private String prenom;
@@ -11,6 +14,15 @@ public class Patient extends Personne {
     private GroupeSanguin groupeSanguin;
     private HistoriqueMedical historiqueMedical;
 
+    /**
+     * Constructeur de la classe Patient.
+     *
+     * @param id            L'identifiant du patient.
+     * @param nom           Le nom du patient.
+     * @param prenom        Le prénom du patient.
+     * @param groupeSanguin Le groupe sanguin du patient.
+     * @param dateNaissance La date de naissance du patient.
+     */
     public Patient(String id, String nom, String prenom, GroupeSanguin groupeSanguin, LocalDate dateNaissance) {
         super(id, nom);
         this.prenom = prenom;
@@ -20,10 +32,20 @@ public class Patient extends Personne {
         this.historiqueMedical = new HistoriqueMedical();
     }
 
+    /**
+     * Marque une facture comme payée.
+     *
+     * @param facture
+     */
     public void marquerFacturePayee(Facture facture) {
         facture.setPayee(true);
     }
 
+    /**
+     * Affiche l'état des factures du patient.
+     *
+     * @return La liste des factures du patient ainsi que leur état.
+     */
     public List<String> afficherEtatFactures() {
         List<String> etatFactures = new LinkedList<>();
         for (Facture facture : factures) {
@@ -32,6 +54,11 @@ public class Patient extends Personne {
         return etatFactures;
     }
 
+    /**
+     * Affiche l'historique médical du patient.
+     *
+     * @return La liste des rendez-vous du patient.
+     */
     public List<String> afficherHistoriqueMedical() {
         List<String> historique = new LinkedList<>();
         for (RendezVous rendezVous : historiqueMedical.getHistoriqueRendezVous()) {
@@ -40,8 +67,13 @@ public class Patient extends Personne {
         return historique;
     }
 
+    /**
+     * Retourne une représentation en chaîne du patient.
+     *
+     * @return Une chaîne représentant le patient.
+     */
     @Override
     public String toString() {
-        return "";
+        return getNom() + " " + prenom + " : " + groupeSanguin + ", né le " + dateNaissance;
     }
 }
