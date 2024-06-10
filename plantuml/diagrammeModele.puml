@@ -21,8 +21,8 @@ package model {
 
         +<<constructor>>Patient(id: String, nom: String, prenom: String, dateNaissance: LocalDate)
         +marquerFacturePaye(facture: Facture) : void
-        +afficherEtatFactures(): void
-        +afficherHistoriqueMedical(): void
+        +afficherEtatFactures(): String *
+        +afficherHistoriqueMedical(): String *
     }
 
 
