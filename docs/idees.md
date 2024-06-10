@@ -29,7 +29,6 @@ Espace patient :
 - Régler facture -> uniquement possible après un rendez-vous
 - Consulter historique médical
 - Donner un avis -> uniquement possible après un rendez-vous et par la personne concernée
--
 
 Espace médecin :
   
