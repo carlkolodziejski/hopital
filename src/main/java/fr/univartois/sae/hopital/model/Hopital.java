@@ -2,8 +2,9 @@ package fr.univartois.sae.hopital.model;
 
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
-import javafx.beans.property.SimpleListProperty;
+import javafx.collections.FXCollections;
 import javafx.collections.ListChangeListener;
+import javafx.collections.ObservableList;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -12,16 +13,16 @@ import java.util.List;
  * Classe qui représente un hôpital.
  */
 public class Hopital {
-    private SimpleListProperty<Medecin> medecins;
-    private SimpleListProperty<Patient> patients;
+    private ObservableList<Medecin> medecins;
+    private ObservableList<Patient> patients;
     private IntegerProperty nbPersonnes;
 
     /**
      * Constructeur de la classe Hopital.
      */
     public Hopital() {
-        this.medecins = new SimpleListProperty<>();
-        this.patients = new SimpleListProperty<>();
+        this.medecins = FXCollections.observableArrayList();
+        this.patients = FXCollections.observableArrayList();
         this.nbPersonnes = new SimpleIntegerProperty(0);
         ListChangeListener<Personne> listener = change -> updateNbPersonnes();
     }
@@ -124,7 +125,7 @@ public class Hopital {
      *
      * @return La liste des médecins.
      */
-    public List<Medecin> medecinsSimpleListProperty() {
+    public ObservableList<Medecin> getMedecins() {
         return medecins;
     }
 
@@ -133,7 +134,7 @@ public class Hopital {
      *
      * @return La liste des patients.
      */
-    public SimpleListProperty<Patient> patientSimpleListProperty() {
+    public ObservableList<Patient> getPatients() {
         return patients;
     }
 
