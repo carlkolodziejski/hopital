@@ -103,11 +103,8 @@ public class MenuAjouterMedecinControleur implements IHopitalControleur {
     void initialize() {
         boutonAjouterMedecin.disableProperty().bind(champNom.textProperty().isEmpty().or(champSpecialisation.textProperty().isEmpty()));
         boutonAjouterMedecin.styleProperty().bind(
-                Bindings.when(
-                                champNom.textProperty().isEmpty().or(champSpecialisation.textProperty().isEmpty())
-                        )
-                        .then("-fx-border-color: green;")
-                        .otherwise("-fx-border-color: grey;")
-        );
+                Bindings.when(boutonAjouterMedecin.disableProperty())
+                        .then("-fx-background-color: grey")
+                        .otherwise("-fx-background-color: green"));
     }
 }
