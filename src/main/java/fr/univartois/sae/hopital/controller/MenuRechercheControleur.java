@@ -17,19 +17,33 @@ import javafx.stage.Stage;
 
 public class MenuRechercheControleur implements IHopitalControleur {
 
+  /**
+   * La fenêtre de l'application.
+   */
   private Stage stage;
-
+  /**
+   * L'hôpital controlé par l'application.
+   */
   private Hopital hopital;
-
+  /**
+   * Le composant représentant le champ de saisie de recherche d'un nom.
+   */
   @FXML
   private TextField rechercheNom;
-
+  /**
+   * Le composant représentant le champ de saisie de recherche d'une specialisation.
+   */
   @FXML
   private TextField rechercheSpe;
-
+  /**
+   * Le composant représentant le resultat de la recherche.
+   */
   @FXML
   private Label resultat;
 
+  /**
+   * Permet de retourner à la scène précédente.
+   */
   @FXML
   void onRetourButtonClick(ActionEvent event) throws IOException {
     FXMLLoader fxmlLoader = new FXMLLoader(
@@ -44,6 +58,10 @@ public class MenuRechercheControleur implements IHopitalControleur {
     stage.setScene(scene);
   }
 
+  /**
+   * Méthode pour rechercher des médecins par spécialisation et retourner les résultats sous forme
+   * de chaîne de caractères.
+   */
   public String rechercheSpe() {
     StringBuilder sb = new StringBuilder();
     String spe = rechercheSpe.getText();
@@ -56,6 +74,10 @@ public class MenuRechercheControleur implements IHopitalControleur {
     return sb.toString();
   }
 
+  /**
+   * Méthode pour rechercher des personnes par nom et retourner les résultats sous forme de chaîne
+   * de caractères.
+   */
   public String rechercheNom() {
     StringBuilder sb = new StringBuilder();
     String nom = rechercheNom.getText();
@@ -68,6 +90,9 @@ public class MenuRechercheControleur implements IHopitalControleur {
     return sb.toString();
   }
 
+  /**
+   * Méthode appelée pour rechercher par nom et spécialisation et affiche les résultats.
+   */
   @FXML
   void onValiderButtonClick(ActionEvent event) {
     String nom = rechercheNom.getText();
@@ -81,10 +106,20 @@ public class MenuRechercheControleur implements IHopitalControleur {
     }
   }
 
+  /**
+   * Définit la fenêtre de l'application.
+   *
+   * @param stage La fenêtre de l'application.
+   */
   public void setStage(Stage stage) {
     this.stage = stage;
   }
 
+  /**
+   * Définit l'hôpital contrôlé.
+   *
+   * @param hopital L'hôpital contrôlé.
+   */
   public void setHopital(Hopital hopital) {
     this.hopital = hopital;
   }
