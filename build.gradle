@@ -1,30 +1,31 @@
-/*
- * La configuration de Gradle pour compiler et exécuter le projet.
- */
-
-// Les plugins permettant à Gradle de gérer le projet en tant qu'application JavaFX.
 plugins {
     id 'java'
     id 'application'
     id 'org.openjfx.javafxplugin' version '0.0.13'
 }
 
-// Les dépôts d'où les dépendances doivent être téléchargées.
 repositories {
     mavenCentral()
 }
 
-// La version du langage Java utilisée dans le projet.
 sourceCompatibility = '17'
 targetCompatibility = '17'
 
-// Le nom de la classe contenant la méthode "main".
-// Notez que le paquetage complet doit être spécifié.
 application {
     mainClass = 'fr.univartois.sae.hopital.HopitalApp'
 }
+dependencies {
+    // https://mvnrepository.com/artifact/org.mockito/mockito-core
+    testImplementation 'org.mockito:mockito-core:5.11.0'
+    // https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-api
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.2'
+    testImplementation 'org.junit.jupiter:junit-jupiter-engine:5.8.2'
+}
 
-// La version de JavaFX utilisée dans le projet, et les composants requis.
+test {
+    useJUnitPlatform()
+}
+
 javafx {
     version = '17.0.2'
     modules = ['javafx.controls', 'javafx.fxml']

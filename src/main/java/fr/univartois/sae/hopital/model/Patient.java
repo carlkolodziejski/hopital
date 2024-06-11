@@ -32,6 +32,7 @@ public class Patient extends Personne {
         this.historiqueMedical = new HistoriqueMedical();
     }
 
+
     /**
      * Retourne la date de naissance du patient.
      *
@@ -53,14 +54,14 @@ public class Patient extends Personne {
     /**
      * Affiche l'état des factures du patient.
      *
-     * @return La liste des factures du patient ainsi que leur état.
+     * @return La liste des factures du patient.
      */
-    public List<String> afficherEtatFactures() {
-        List<String> etatFactures = new LinkedList<>();
+    public String afficherEtatFactures() {
+        StringBuilder sb = new StringBuilder();
         for (Facture facture : factures) {
-            etatFactures.add(facture.toString());
+            sb.append(facture.toString()).append("\n");
         }
-        return etatFactures;
+        return sb.toString();
     }
 
     /**
@@ -68,12 +69,21 @@ public class Patient extends Personne {
      *
      * @return La liste des rendez-vous du patient.
      */
-    public List<String> afficherHistoriqueMedical() {
-        List<String> historique = new LinkedList<>();
+    public String afficherHistoriqueMedical() {
+        StringBuilder sb = new StringBuilder();
         for (RendezVous rendezVous : historiqueMedical.getHistoriqueRendezVous()) {
-            historique.add(rendezVous.toString());
+            sb.append(rendezVous.toString()).append("\n");
         }
-        return historique;
+        return sb.toString();
+    }
+
+    /**
+     * Ajoute une facture à la liste des factures du patient.
+     *
+     * @param facture La facture à ajouter.
+     */
+    public void ajouterFacture(Facture facture) {
+        factures.add(facture);
     }
 
     /**
@@ -84,5 +94,9 @@ public class Patient extends Personne {
     @Override
     public String toString() {
         return getNom() + " " + prenom + " : " + groupeSanguin + ", né le " + dateNaissance;
+    }
+
+    public String getPrenom() {
+        return prenom;
     }
 }

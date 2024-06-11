@@ -51,7 +51,7 @@ public class Facture {
      * Détermine le coût total de la facture.
      * Le prix est determiné par le prix d'un rendez-vous multiplié par le nombre de rendez-vous compris dans la facture.
      */
-    private void calculerCoutTotal() {
+    public void calculerCoutTotal() {
         for (RendezVous rdv : rendezVous) {
             coutTotal += rdv.getPrix();
         }
@@ -91,5 +91,20 @@ public class Facture {
      */
     public void setPayee(boolean payee) {
         this.payee = payee;
+    }
+
+    /**
+     * Retourne une représentation en chaîne de l'état du payement de la facture.
+     *
+     * @return "Payée" si la facture est payée, sinon "Non payée".
+     */
+    public String payeeToString() {
+        if (payee) return "Payée";
+        return "Non payée";
+    }
+
+    @Override
+    public String toString() {
+        return "Facture n°" + id + " : " + details + " - " + coutTotal + " euros, " + payeeToString();
     }
 }
