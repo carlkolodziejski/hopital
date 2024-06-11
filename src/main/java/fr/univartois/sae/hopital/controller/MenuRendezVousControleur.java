@@ -1,9 +1,6 @@
 package fr.univartois.sae.hopital.controller;
 
-import fr.univartois.sae.hopital.model.Hopital;
-import fr.univartois.sae.hopital.model.IHopitalControleur;
-import fr.univartois.sae.hopital.model.Medecin;
-import fr.univartois.sae.hopital.model.RendezVous;
+import fr.univartois.sae.hopital.model.*;
 import javafx.beans.binding.Bindings;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
