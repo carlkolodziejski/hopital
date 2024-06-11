@@ -50,7 +50,7 @@ public class MenuGestionPatientControleur implements IHopitalControleur {
      */
     @FXML
     void onAfficherHistoriqueMedicalButtonClick(ActionEvent event) {
-        //TODO Afficher l'historique médical du patient
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../view/vue-menu-historique-medical.fxml"));
     }
 
     /**
@@ -66,10 +66,10 @@ public class MenuGestionPatientControleur implements IHopitalControleur {
      */
     @FXML
     void onPrendreRDVButtonClick() throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../view/vue-menu-rdv.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../view/vue-menu-prendre-rdv.fxml"));
         Parent viewContent = fxmlLoader.load();
 
-        MenuRendezVousControleur menuPrendreRendezVousControleur = fxmlLoader.getController();
+        MenuPriseRendezVousControleur menuPrendreRendezVousControleur = fxmlLoader.getController();
         menuPrendreRendezVousControleur.setStage(stage);
         menuPrendreRendezVousControleur.setHopital(hopital);
 

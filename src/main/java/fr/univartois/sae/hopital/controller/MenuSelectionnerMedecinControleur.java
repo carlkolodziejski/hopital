@@ -1,6 +1,5 @@
 package fr.univartois.sae.hopital.controller;
 
-import fr.univartois.sae.hopital.controller.MenuMedecinControleur;
 import fr.univartois.sae.hopital.model.Hopital;
 import fr.univartois.sae.hopital.model.IHopitalControleur;
 import fr.univartois.sae.hopital.model.Medecin;
@@ -15,7 +14,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class MenuAfficherMedecinControleur implements IHopitalControleur {
+public class MenuSelectionnerMedecinControleur implements IHopitalControleur {
 
     private Stage stage;
     private Hopital hopital;

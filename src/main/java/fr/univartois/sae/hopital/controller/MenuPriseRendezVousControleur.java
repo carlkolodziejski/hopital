@@ -19,7 +19,7 @@ import java.util.UUID;
 /**
  * Classe qui représente le contrôleur du menu de prise de rendez-vous.
  */
-public class MenuRendezVousControleur implements IHopitalControleur {
+public class MenuPriseRendezVousControleur implements IHopitalControleur {
 
     /**
      * La fenêtre de l'application.
@@ -88,6 +88,9 @@ public class MenuRendezVousControleur implements IHopitalControleur {
         }
     }
 
+    /**
+     * Nettoie les champ d'entrées après la validation de la prise de rendez-vous.
+     */
     private void validerAjout() {
         choixMedecin.getSelectionModel().clearSelection();
         champHeure.clear();
@@ -98,6 +101,12 @@ public class MenuRendezVousControleur implements IHopitalControleur {
         message.setText("Rendez-vous pris avec succès.");
     }
 
+    /**
+     * Permet de définir un rendez-vous à partir des informations saisies.
+     *
+     * @return Le rendez-vous défini.
+     * @throws HeureInvalideException Si l'heure saisie est invalide.
+     */
     private RendezVous definirRendezVous() throws HeureInvalideException {
         String id = UUID.randomUUID().toString();
         Medecin medecin = choixMedecin.getValue();
