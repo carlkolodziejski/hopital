@@ -1,6 +1,7 @@
 package fr.univartois.sae.hopital.model;
 
 import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.SimpleIntegerProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
@@ -23,7 +24,9 @@ public class HistoriqueMedical {
      * Constructeur de la classe HistoriqueMedical.
      */
     public HistoriqueMedical() {
-        this.historiqueRendezVous = FXCollections.observableArrayList();
+        historiqueRendezVous = FXCollections.observableArrayList();
+        nbRendezVous = new SimpleIntegerProperty(0);
+        
         ListChangeListener<RendezVous> listener = change -> updateNbRendezVous();
 
         historiqueRendezVous.addListener(listener);
