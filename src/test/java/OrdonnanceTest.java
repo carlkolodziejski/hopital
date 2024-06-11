@@ -4,10 +4,10 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 
-public class OrdonnanceTest {
+class OrdonnanceTest {
 
     @Test
-    public void testMedicamentCreation() {
+    void testMedicamentCreation() {
         Medicament medicament = new Medicament("Aspirine", 5, 3);
         assertEquals("Aspirine", medicament.getNom());
         assertEquals(5, medicament.getNombreJours());
@@ -15,7 +15,7 @@ public class OrdonnanceTest {
     }
 
     @Test
-    public void testToString() {
+    void testToString() {
         Medicament medicament = new Medicament("Paracétamol", 7, 2);
         String expected = "Paracétamol : 7, 2 par jour.";
         assertEquals(expected, medicament.toString());
