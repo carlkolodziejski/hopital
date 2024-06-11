@@ -47,10 +47,21 @@ public class MenuGestionPatientControleur implements IHopitalControleur {
 
     /**
      * Permet d'afficher l'historique médical du patient.
+     *
+     * @throws IOException Si le fichier FXML n'est pas trouvé.
      */
     @FXML
-    void onAfficherHistoriqueMedicalButtonClick(ActionEvent event) {
-        //TODO Afficher l'historique médical du patient
+    void onAfficherHistoriqueMedicalButtonClick() throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../view/vue-menu-historique-medical.fxml"));
+        Parent viewContent = fxmlLoader.load();
+
+        MenuHistoriqueMedicalControleur menuHistoriqueMedicalControleur = fxmlLoader.getController();
+        menuHistoriqueMedicalControleur.setStage(stage);
+        menuHistoriqueMedicalControleur.setHopital(hopital);
+        menuHistoriqueMedicalControleur.setListeHistorique();
+
+        Scene scene = new Scene(viewContent);
+        stage.setScene(scene);
     }
 
     /**
@@ -66,10 +77,10 @@ public class MenuGestionPatientControleur implements IHopitalControleur {
      */
     @FXML
     void onPrendreRDVButtonClick() throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../view/vue-menu-rdv.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../view/vue-menu-prendre-rdv.fxml"));
         Parent viewContent = fxmlLoader.load();
 
-        MenuRendezVousControleur menuPrendreRendezVousControleur = fxmlLoader.getController();
+        MenuPriseRendezVousControleur menuPrendreRendezVousControleur = fxmlLoader.getController();
         menuPrendreRendezVousControleur.setStage(stage);
         menuPrendreRendezVousControleur.setHopital(hopital);
 
@@ -113,5 +124,8 @@ public class MenuGestionPatientControleur implements IHopitalControleur {
     @Override
     public void setHopital(Hopital hopital) {
         this.hopital = hopital;
+
+        labelPrenomNomPatient.setText(hopital.getPatientCourant().getPrenom() + " " + hopital.getPatientCourant().getNom());
+        boutonAfficherHistoriqueMedical.disableProperty().bind(hopital.getPatientCourant().getHistoriqueMedical().getNombreRendezVous().greaterThan(0).not());
     }
 }

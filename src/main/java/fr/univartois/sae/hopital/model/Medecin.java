@@ -1,5 +1,8 @@
 package fr.univartois.sae.hopital.model;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+
 /**
  * Classe qui représente un médecin.
  */
@@ -15,6 +18,11 @@ public class Medecin extends Personne {
     private double tarif;
 
     /**
+     * Liste des rendez-vous du médecin.
+     */
+    private ObservableList<RendezVous> rendezVous;
+
+    /**
      * Le constructeur de la classe Medecin.
      *
      * @param id             L'identifiant du médecin.
@@ -25,6 +33,7 @@ public class Medecin extends Personne {
         super(id, nom);
         this.specialisation = specialisation;
         this.tarif = tarif;
+        rendezVous = FXCollections.observableArrayList();
     }
 
     /**
@@ -43,6 +52,24 @@ public class Medecin extends Personne {
      */
     public void setSpecialisation(String specialisation) {
         this.specialisation = specialisation;
+    }
+
+    /**
+     * Retourne la liste des rendez-vous du médecin.
+     *
+     * @return La liste des rendez-vous du médecin.
+     */
+    public ObservableList<RendezVous> getRendezVous() {
+        return rendezVous;
+    }
+
+    /**
+     * Ajoute un rendez-vous à la liste des rendez-vous du médecin.
+     *
+     * @param rendezVous Le rendez-vous à ajouter.
+     */
+    public void ajouterRendezVous(RendezVous rendezVous) {
+        this.rendezVous.add(rendezVous);
     }
 
     /**

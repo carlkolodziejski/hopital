@@ -37,13 +37,16 @@ public class Hopital {
      * Constructeur de la classe Hopital.
      */
     public Hopital() {
-        this.medecins = FXCollections.observableArrayList();
-        this.patients = FXCollections.observableArrayList();
-        this.nbPersonnes = new SimpleIntegerProperty(0);
-        this.patientCourant = null;
+        medecins = FXCollections.observableArrayList();
+        patients = FXCollections.observableArrayList();
+        nbPersonnes = new SimpleIntegerProperty(0);
+        patientCourant = null;
 
         // Cet écouteur permet de mettre à jour le nombre de personnes dans l'hôpital à chaque fois que la taille de la liste des médecins ou des patients change.
         ListChangeListener<Personne> listener = change -> updateNbPersonnes();
+
+        this.medecins.addListener(listener);
+        this.patients.addListener(listener);
     }
 
     /**
@@ -62,6 +65,23 @@ public class Hopital {
      */
     public void ajouterPatient(Patient patient) {
         patients.add(patient);
+    }
+
+    /**
+     * Supprime un patient de la liste des patients.
+     */
+    public void supprimerPatient(Patient patient) {
+        patients.remove(patient);
+    }
+
+    /**
+     * Supprime un médecin de la liste des médecins de l'hôpital.
+     *
+     * @param medecin Le médecin à supprimer.
+     * @return true si le médecin a été trouvé et supprimé, sinon false.
+     */
+    public boolean supprimerMedecin(Medecin medecin) {
+        return medecins.remove(medecin);
     }
 
     /**

@@ -33,7 +33,13 @@ public class MenuSelectionnerPatientControleur implements IHopitalControleur {
      * Composant représentant le bouton pour confirmer la sélection du patient.
      */
     @FXML
-    private Button boutonSelectionnerPatient;
+    private Button boutonSelectionner;
+
+    /**
+     * Composant représentant le bouton pour supprimer un patient.
+     */
+    @FXML
+    private Button boutonSupprimer;
 
     /**
      * Composant représentant la liste des patients.
@@ -55,6 +61,12 @@ public class MenuSelectionnerPatientControleur implements IHopitalControleur {
 
         Scene scene = new Scene(viewContent);
         stage.setScene(scene);
+    }
+
+    @FXML
+    void onSupprimerButtonClick() {
+        Patient patientChoisi = listePatients.getSelectionModel().getSelectedItem();
+        hopital.getPatients().remove(patientChoisi);
     }
 
     /**
@@ -102,9 +114,10 @@ public class MenuSelectionnerPatientControleur implements IHopitalControleur {
 
     @FXML
     void initialize() {
-        listePatients.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, patientChoisi) -> boutonSelectionnerPatient.setDisable(patientChoisi == null));
-        boutonSelectionnerPatient.styleProperty().bind(
-                Bindings.when(boutonSelectionnerPatient.disableProperty())
+        listePatients.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, patientChoisi) -> boutonSelectionner.setDisable(patientChoisi == null));
+        listePatients.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, patientChoisi) -> boutonSupprimer.setDisable(patientChoisi == null));
+        boutonSelectionner.styleProperty().bind(
+                Bindings.when(boutonSelectionner.disableProperty())
                         .then("-fx-border-color: grey")
                         .otherwise("-fx-border-color: green")
         );
