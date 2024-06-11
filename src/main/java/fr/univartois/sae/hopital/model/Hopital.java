@@ -98,8 +98,8 @@ public class Hopital {
      * @param specialisation La spécialisation à rechercher.
      * @return La liste des médecins qui ont la spécialisation donnée.
      */
-    public List<Medecin> rechercherParSpecialisation(String specialisation) {
-        List<Medecin> medecinsTrouves = new LinkedList<>();
+    public ObservableList<Medecin> rechercherParSpecialisation(String specialisation) {
+        ObservableList<Medecin> medecinsTrouves = FXCollections.observableArrayList();
         for (Medecin medecin : medecins) {
             if (medecin.getSpecialisation().equals(specialisation)) {
                 medecinsTrouves.add(medecin);
@@ -114,8 +114,8 @@ public class Hopital {
      * @param nom Le nom à rechercher.
      * @return La liste des personnes qui ont le nom donné.
      */
-    public List<Personne> rechercherParNom(String nom) {
-        List<Personne> personnesTrouvees = new LinkedList<>();
+    public ObservableList<Personne> rechercherParNom(String nom) {
+        ObservableList<Personne> personnesTrouvees = FXCollections.observableArrayList();
         for (Medecin medecin : medecins) {
             if (medecin.getNom().equals(nom)) {
                 personnesTrouvees.add(medecin);
