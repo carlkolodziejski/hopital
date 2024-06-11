@@ -76,6 +76,10 @@ public class Patient extends Personne {
         return historique;
     }
 
+    public void ajouterFacture(Facture facture) {
+        factures.add(facture);
+    }
+
     /**
      * Retourne une représentation en chaîne du patient.
      *
