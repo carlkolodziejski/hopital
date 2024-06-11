@@ -39,16 +39,15 @@ public class MenuPrincipalControleur implements IHopitalControleur {
      */
     @FXML
     void onChercherButtonClick() throws IOException {
-       /* FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../view/vue-menu-recherche.fxml"));
+       FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../view/vue-menu-recherche.fxml"));
         Parent viewContent = fxmlLoader.load();
 
         MenuRechercheControleur menuRechercheControleur = fxmlLoader.getController();
         menuRechercheControleur.setStage(stage);
-        menuRechercheControleur.setScene(this.stage.getScene());
         menuRechercheControleur.setHopital(hopital);
 
         Scene scene = new Scene(viewContent);
-        stage.setScene(scene);*/
+        stage.setScene(scene);
     }
 
     /**
@@ -94,8 +93,7 @@ public class MenuPrincipalControleur implements IHopitalControleur {
      */
     public void setHopital(Hopital hopital) {
         this.hopital = hopital;
-
-        boutonChercher.disableProperty().bind(hopital.getNbPersonnes().isEqualTo(0));
+        boutonChercher.disableProperty().bind(hopital.getNbPersonnes().greaterThan(0));
     }
 
     /**
