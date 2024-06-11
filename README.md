@@ -2,6 +2,7 @@
 
 ## Contributeurs
 
+- COEUGNIET Ines
 - GOUMZI Clément
-- HUGOT Antoine
 - KOLODZIEJSKI Carl
+- MAROILLE Mathéo
