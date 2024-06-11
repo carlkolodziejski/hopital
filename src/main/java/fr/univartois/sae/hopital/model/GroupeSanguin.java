@@ -11,5 +11,5 @@ public enum GroupeSanguin {
     AB_POSITIF,
     AB_NEGATIF,
     O_POSITIF,
-    A_POSITIVE, O_NEGATIF
+    O_NEGATIF
 }
