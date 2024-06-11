@@ -1,5 +1,6 @@
 import fr.univartois.sae.hopital.model.*;
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -7,7 +8,7 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.mockito.Mockito.*;
 
 class PatientTest {
 
@@ -15,29 +16,36 @@ class PatientTest {
 
     @BeforeAll
     public static void initPatient() {
+        patient = new Patient("1", "Duchmol", "Robert", GroupeSanguin.AB_NEGATIF, LocalDate.of(1990, 1, 1));
+    }
 
-        patient = new Patient("1", "Doe", "John", GroupeSanguin.AB_NEGATIF, LocalDate.of(1990, 1, 1));
+    @BeforeEach
+    public void resetPatient() {
+        patient = new Patient("1", "Duchmol", "Robert", GroupeSanguin.AB_NEGATIF, LocalDate.of(1990, 1, 1));
     }
 
     @Test
     @DisplayName("Marquer une facture comme payée")
     void testMarquerFacturePayee() {
         // Arrange
-        Facture facture = new Facture("1", "Consultation", false);
+        Facture facture = mock(Facture.class);
 
         // Act
         patient.marquerFacturePayee(facture);
 
         // Assert
-        assertTrue(facture.isPayee());
+        verify(facture).setPayee(true);
     }
 
     @Test
     @DisplayName("Afficher l'état des factures")
     void testAfficherEtatFactures() {
         // Arrange
-        Facture facture1 = new Facture("1", "Consultation", false);
-        Facture facture2 = new Facture("2", "Consultation", true);
+        Facture facture1 = mock(Facture.class);
+        Facture facture2 = mock(Facture.class);
+        when(facture1.toString()).thenReturn("Facture 1");
+        when(facture2.toString()).thenReturn("Facture 2");
+
         patient.ajouterFacture(facture1);
         patient.ajouterFacture(facture2);
 
@@ -46,14 +54,17 @@ class PatientTest {
 
         // Assert
         System.out.println(etatFactures);
-        assertEquals(facture1.toString() + "\n" + facture2.toString() + "\n", patient.afficherEtatFactures());
+        assertEquals("Facture 1\nFacture 2\n", etatFactures);
     }
 
     @Test
     @DisplayName("Afficher l'historique médical")
     void testAfficherHistoriqueMedical() {
         // Arrange
-        RendezVous rendezVous = new RendezVous("1", "Consultation", 50.0, patient, new Medecin("1", "Doe", "Cardiologue", 50.0), LocalDateTime.now());
+        Medecin medecin = mock(Medecin.class);
+        when(medecin.toString()).thenReturn("Dr. Duchmol");
+
+        RendezVous rendezVous = new RendezVous("1", "Consultation", 50.0, patient, medecin, LocalDateTime.now());
         rendezVous.enregistrerVisite();
 
         // Act
@@ -67,7 +78,10 @@ class PatientTest {
     @DisplayName("Retourner l'historique médical")
     void testGetHistoriqueMedical() {
         // Arrange
-        RendezVous rendezVous = new RendezVous("1", "Consultation", 50.0, patient, new Medecin("1", "Doe", "Cardiologue", 50.0), LocalDateTime.now());
+        Medecin medecin = mock(Medecin.class);
+        when(medecin.toString()).thenReturn("Dr. Duchmol");
+
+        RendezVous rendezVous = new RendezVous("1", "Consultation", 50.0, patient, medecin, LocalDateTime.now());
         rendezVous.enregistrerVisite();
 
         // Act
@@ -81,7 +95,7 @@ class PatientTest {
     @DisplayName("Test patient toString")
     void testPatientToString() {
         // Arrange
-        String expected = "Doe John : AB_NEGATIF, né le 1990-01-01";
+        String expected = "Duchmol Robert : AB_NEGATIF, né le 1990-01-01";
 
         // Act
         String actual = patient.toString();

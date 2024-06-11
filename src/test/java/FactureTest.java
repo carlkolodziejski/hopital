@@ -1,8 +1,7 @@
 import fr.univartois.sae.hopital.model.Facture;
-//  Classe qui représente une facture
-
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 public class FactureTest {
