@@ -1,6 +1,9 @@
 package fr.univartois.sae.hopital.controller;
 
-import fr.univartois.sae.hopital.model.*;
+import fr.univartois.sae.hopital.model.Hopital;
+import fr.univartois.sae.hopital.model.IHopitalControleur;
+import fr.univartois.sae.hopital.model.Medecin;
+import fr.univartois.sae.hopital.model.RendezVous;
 import javafx.beans.binding.Bindings;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -81,7 +84,7 @@ public class MenuRendezVousControleur implements IHopitalControleur {
 
             validerAjout();
         } catch (NumberFormatException | HeureInvalideException e) {
-            message.setText("Veuillez saisir une heure et des minutes valides.");
+            message.setText("Veuillez saisir une horaire.");
         }
     }
 
