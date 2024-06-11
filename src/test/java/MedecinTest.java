@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class MedecinTest {
+class MedecinTest {
   private Medecin medecinTest;
   @BeforeEach
   public void initMedecin() {
@@ -19,26 +19,26 @@ public class MedecinTest {
 
   @Test
   @DisplayName("Test Medecin get Specialisation ")
-  public void testMedecinSpecialisation() {
+   void testMedecinSpecialisation() {
     assertEquals("Cardiologue", medecinTest.getSpecialisation());
   }
 
   @Test
   @DisplayName("Test Medecin set Specialisation")
-  public void testMedecinSetSpecialisation() {
+   void testMedecinSetSpecialisation() {
     medecinTest.setSpecialisation("Pédiatre");
     assertEquals("Pédiatre", medecinTest.getSpecialisation());
   }
   @Test
   @DisplayName("Test Medecin toString()")
-  public void testMedecinToString() {
+   void testMedecinToString() {
     assertEquals("Dr. Doe : Cardiologue", medecinTest.toString());
 
   }
 
   @Test
   @DisplayName("Test Medecin Tarif")
-  public void testMedecinTarif() {
+   void testMedecinTarif() {
     assertEquals(50.0, medecinTest.getTarif());
   }
 
