@@ -113,5 +113,8 @@ public class MenuGestionPatientControleur implements IHopitalControleur {
     @Override
     public void setHopital(Hopital hopital) {
         this.hopital = hopital;
+
+        labelPrenomNomPatient.setText(hopital.getPatientCourant().getPrenom() + " " + hopital.getPatientCourant().getNom());
+        boutonAfficherHistoriqueMedical.disableProperty().bind(hopital.getPatientCourant().getHistoriqueMedical().getNombreRendezVous().greaterThan(0).not());
     }
 }
