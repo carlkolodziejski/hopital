@@ -1,23 +1,67 @@
 import fr.univartois.sae.hopital.model.Medicament;
+import fr.univartois.sae.hopital.model.Ordonnance;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import java.util.List;
+
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 
 
 class OrdonnanceTest {
 
-    @Test
-    void testMedicamentCreation() {
-        Medicament medicament = new Medicament("Aspirine", 5, 3);
-        assertEquals("Aspirine", medicament.getNom());
-        assertEquals(5, medicament.getNombreJours());
-        assertEquals(3, medicament.getPosologie());
+    private static Ordonnance ordonnance;
+
+    @BeforeAll
+    public static void initOrdonnance() {
+        Medicament medicament = mock(Medicament.class);
+        when(medicament.getNom()).thenReturn("Doliprane");
+        when(medicament.getNombreJours()).thenReturn(7);
+        when(medicament.getPosologie()).thenReturn(3);
+        List<Medicament> medicaments = List.of(medicament);
+        ordonnance = new Ordonnance("1", medicaments);
+    }
+
+    @BeforeEach
+    public void resetOrdonnance() {
+        Medicament medicament = mock(Medicament.class);
+        when(medicament.getNom()).thenReturn("Doliprane");
+        when(medicament.getNombreJours()).thenReturn(7);
+        when(medicament.getPosologie()).thenReturn(3);
+        List<Medicament> medicaments = List.of(medicament);
+        ordonnance = new Ordonnance("1", medicaments);
     }
 
     @Test
-    void testToString() {
-        Medicament medicament = new Medicament("Paracétamol", 7, 2);
-        String expected = "Paracétamol : 7, 2 par jour.";
-        assertEquals(expected, medicament.toString());
+    @DisplayName("Prescription d'un médicament")
+    void testPrescrire() {
+        Medicament medicament = mock(Medicament.class);
+
+        ordonnance.prescrire(medicament);
+
+        assert ordonnance.getMedicaments().contains(medicament);
+    }
+
+    @Test
+    @DisplayName("Affichage des médicaments")
+    void testAfficherMedicaments() {
+        Medicament medicament = mock(Medicament.class);
+        when(medicament.toString()).thenReturn("Doliprane : 7 jours, 3 fois par jour.");
+        ordonnance.prescrire(medicament);
+
+        String affichageMedicaments = ordonnance.afficherMedicaments();
+
+        assert affichageMedicaments.contains("Doliprane : 7 jours, 3 fois par jour.");
+    }
+
+    @Test
+    @DisplayName("Affichage de l'ordonnance")
+    void testAfficherOrdonnance() {
+        String affichageOrdonnance = ordonnance.toString();
+        
+        assert affichageOrdonnance.contains("1");
     }
 }
