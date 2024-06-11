@@ -1,6 +1,8 @@
 package fr.univartois.sae.hopital.model;
 
+import javafx.beans.property.IntegerProperty;
 import javafx.collections.FXCollections;
+import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
 
 /**
@@ -13,10 +15,18 @@ public class HistoriqueMedical {
     private ObservableList<RendezVous> historiqueRendezVous;
 
     /**
+     * Le nombre de rendez-vous dans l'historique.
+     */
+    private IntegerProperty nbRendezVous;
+
+    /**
      * Constructeur de la classe HistoriqueMedical.
      */
     public HistoriqueMedical() {
         this.historiqueRendezVous = FXCollections.observableArrayList();
+        ListChangeListener<RendezVous> listener = change -> updateNbRendezVous();
+
+        historiqueRendezVous.addListener(listener);
     }
 
     public ObservableList<RendezVous> getHistoriqueRendezVous() {
@@ -32,7 +42,11 @@ public class HistoriqueMedical {
         historiqueRendezVous.add(rendezVous);
     }
 
-    public int getNombreRendezVous() {
-        return historiqueRendezVous.size();
+    public void updateNbRendezVous() {
+        nbRendezVous.set(historiqueRendezVous.size());
+    }
+
+    public IntegerProperty getNombreRendezVous() {
+        return nbRendezVous;
     }
 }
