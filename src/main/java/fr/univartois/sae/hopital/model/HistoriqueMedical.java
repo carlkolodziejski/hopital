@@ -1,6 +1,7 @@
 package fr.univartois.sae.hopital.model;
 
-import java.util.Stack;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 /**
  * Classe qui représente l'historique médical d'un patient.
@@ -9,16 +10,16 @@ public class HistoriqueMedical {
     /**
      * Pile qui représente l'historique des rendez-vous d'un patient.
      */
-    private Stack<RendezVous> historiqueRendezVous;
+    private ObservableList<RendezVous> historiqueRendezVous;
 
     /**
      * Constructeur de la classe HistoriqueMedical.
      */
     public HistoriqueMedical() {
-        this.historiqueRendezVous = new Stack<>();
+        this.historiqueRendezVous = FXCollections.observableArrayList();
     }
 
-    public Stack<RendezVous> getHistoriqueRendezVous() {
+    public ObservableList<RendezVous> getHistoriqueRendezVous() {
         return historiqueRendezVous;
     }
 
@@ -28,6 +29,10 @@ public class HistoriqueMedical {
      * @param rendezVous Le rendez-vous à ajouter.
      */
     public void ajouterRendezVous(RendezVous rendezVous) {
-        historiqueRendezVous.push(rendezVous);
+        historiqueRendezVous.add(rendezVous);
+    }
+
+    public int getNombreRendezVous() {
+        return historiqueRendezVous.size();
     }
 }
