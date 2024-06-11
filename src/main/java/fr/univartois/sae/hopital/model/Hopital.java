@@ -6,13 +6,17 @@ import javafx.collections.FXCollections;
 import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
 
-import java.util.LinkedList;
 import java.util.List;
 
 /**
  * Classe qui représente un hôpital.
  */
 public class Hopital {
+    /**
+     * Le médecin sélectionné.
+     */
+    private Medecin medecinCourant;
+
     /**
      * La liste des médecins de l'hôpital.
      */
@@ -227,5 +231,13 @@ public class Hopital {
      */
     public void setPatientCourant(Patient patientCourant) {
         this.patientCourant = patientCourant;
+    }
+
+    public Medecin getMedecinCourant() {
+        return medecinCourant;
+    }
+
+    public void setMedecinCourant(Medecin medecinSelectionne) {
+        this.medecinCourant = medecinSelectionne;
     }
 }

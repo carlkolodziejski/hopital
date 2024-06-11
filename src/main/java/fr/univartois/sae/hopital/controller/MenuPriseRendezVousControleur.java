@@ -119,7 +119,10 @@ public class MenuPriseRendezVousControleur implements IHopitalControleur {
         String motif = champMotif.getText();
         LocalDate date = choixDate.getValue();
 
-        return new RendezVous(id, motif, medecin.getTarif(), hopital.getPatientCourant(), medecin, date.atTime(heure, minute));
+        RendezVous rendezVous = new RendezVous(id, motif, medecin.getTarif(), hopital.getPatientCourant(), medecin, date.atTime(heure, minute));
+        medecin.ajouterRendezVous(rendezVous);
+        return rendezVous;
+
     }
 
     /**

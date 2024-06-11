@@ -71,6 +71,28 @@ public class MenuSelectionnerMedecinControleur implements IHopitalControleur {
     }
 
     @FXML
+    void onSelectionnerButtonClick() {
+        Medecin medecinSelectionne = listeMedecins.getSelectionModel().getSelectedItem();
+        hopital.setMedecinCourant(medecinSelectionne);
+        if (medecinSelectionne != null) {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../view/vue-menu-rdv-medecin.fxml"));
+            try {
+                Parent viewContent = fxmlLoader.load();
+
+                MenuRendezVousMedecinControleur menuRendezVousMedecinControleur = fxmlLoader.getController();
+                menuRendezVousMedecinControleur.setStage(stage);
+                menuRendezVousMedecinControleur.setHopital(hopital);
+                menuRendezVousMedecinControleur.setListeRendezVous();
+
+                Scene scene = new Scene(viewContent);
+                stage.setScene(scene);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    @FXML
     void onSupprimerButtonClick(ActionEvent event) {
         supprimerMedecin();
     }
