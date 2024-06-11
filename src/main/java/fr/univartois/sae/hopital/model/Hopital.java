@@ -44,6 +44,9 @@ public class Hopital {
 
         // Cet écouteur permet de mettre à jour le nombre de personnes dans l'hôpital à chaque fois que la taille de la liste des médecins ou des patients change.
         ListChangeListener<Personne> listener = change -> updateNbPersonnes();
+
+        this.medecins.addListener(listener);
+        this.patients.addListener(listener);
     }
 
     /**
