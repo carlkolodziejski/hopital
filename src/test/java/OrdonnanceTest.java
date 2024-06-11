@@ -60,8 +60,12 @@ class OrdonnanceTest {
     @Test
     @DisplayName("Affichage de l'ordonnance")
     void testAfficherOrdonnance() {
+        Medicament medicament = mock(Medicament.class);
+        when(medicament.toString()).thenReturn("Doliprane : 7 jours, 3 fois par jour.");
+        ordonnance.prescrire(medicament);
+
         String affichageOrdonnance = ordonnance.toString();
-        
-        assert affichageOrdonnance.contains("1");
+
+        assert affichageOrdonnance.contains("1 : \nDoliprane : 7 jours, 3 fois par jour.");
     }
 }
