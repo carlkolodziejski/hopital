@@ -4,15 +4,16 @@ import fr.univartois.sae.hopital.model.Patient;
 import fr.univartois.sae.hopital.model.RendezVous;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import static org.mockito.Mockito.*;
 
 import java.time.LocalDateTime;
 
-public class RendezVousTest {
+import static org.mockito.Mockito.*;
+
+class RendezVousTest {
 
     @Test
     @DisplayName("devraitEnregistrerVisite")
-    public void devraitEnregistrerVisite() {
+    void devraitEnregistrerVisite() {
         // Création des mocks
         Patient patient = mock(Patient.class);
         HistoriqueMedical historique = mock(HistoriqueMedical.class);

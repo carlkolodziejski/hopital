@@ -20,8 +20,7 @@ class PatientTest {
     }
 
     @BeforeEach
-    public void setUp() {
-        // Réinitialiser l'état du patient avant chaque test
+    public void resetPatient() {
         patient = new Patient("1", "Duchmol", "Robert", GroupeSanguin.AB_NEGATIF, LocalDate.of(1990, 1, 1));
     }
 
