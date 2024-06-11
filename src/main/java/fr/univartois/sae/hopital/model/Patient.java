@@ -32,7 +32,8 @@ public class Patient extends Personne {
         this.historiqueMedical = new HistoriqueMedical();
     }
 
-    /**
+
+  /**
      * Retourne la date de naissance du patient.
      *
      * @return La date de naissance du patient.
