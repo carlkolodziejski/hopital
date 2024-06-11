@@ -47,10 +47,21 @@ public class MenuGestionPatientControleur implements IHopitalControleur {
 
     /**
      * Permet d'afficher l'historique médical du patient.
+     *
+     * @throws IOException Si le fichier FXML n'est pas trouvé.
      */
     @FXML
-    void onAfficherHistoriqueMedicalButtonClick(ActionEvent event) {
+    void onAfficherHistoriqueMedicalButtonClick() throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../view/vue-menu-historique-medical.fxml"));
+        Parent viewContent = fxmlLoader.load();
+
+        MenuHistoriqueMedicalControleur menuHistoriqueMedicalControleur = fxmlLoader.getController();
+        menuHistoriqueMedicalControleur.setStage(stage);
+        menuHistoriqueMedicalControleur.setHopital(hopital);
+        menuHistoriqueMedicalControleur.setListeHistorique();
+
+        Scene scene = new Scene(viewContent);
+        stage.setScene(scene);
     }
 
     /**
