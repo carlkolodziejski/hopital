@@ -92,4 +92,19 @@ public class Facture {
     public void setPayee(boolean payee) {
         this.payee = payee;
     }
+
+    /**
+     * Retourne une représentation en chaîne de l'état du payement de la facture.
+     *
+     * @return "Payée" si la facture est payée, sinon "Non payée".
+     */
+    public String payeeToString() {
+        if (payee) return "Payée";
+        return "Non payée";
+    }
+
+    @Override
+    public String toString() {
+        return "Facture n°" + id + " : " + details + " - " + coutTotal + " euros, " + payeeToString();
+    }
 }
