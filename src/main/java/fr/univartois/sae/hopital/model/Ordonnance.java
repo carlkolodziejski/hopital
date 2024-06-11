@@ -37,6 +37,10 @@ public class Ordonnance {
         medicaments.add(medicament);
     }
 
+    public List<Medicament> getMedicaments() {
+        return medicaments;
+    }
+
     /**
      * Permet d'afficher les médicaments compris dans l'ordonnance.
      *
