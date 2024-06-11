@@ -84,7 +84,7 @@ public class MenuPriseRendezVousControleur implements IHopitalControleur {
 
             validerAjout();
         } catch (NumberFormatException | HeureInvalideException e) {
-            message.setText("Veuillez saisir une horaire.");
+            message.setText("Veuillez saisir une horaire valide.");
         }
     }
 
