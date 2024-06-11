@@ -4,18 +4,17 @@ import fr.univartois.sae.hopital.model.Patient;
 import fr.univartois.sae.hopital.model.RendezVous;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import static org.mockito.Mockito.*;
 
 import java.time.LocalDateTime;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.*;
 
-public class RendezVousTest {
+class RendezVousTest {
 
     @Test
     @DisplayName("devraitEnregistrerVisite")
-    public void devraitEnregistrerVisite() {
+    void devraitEnregistrerVisite() {
         Patient patient = mock(Patient.class);
         HistoriqueMedical historique = mock(HistoriqueMedical.class);
         when(patient.getHistoriqueMedical()).thenReturn(historique);
@@ -34,7 +33,7 @@ public class RendezVousTest {
 
     @Test
     @DisplayName("devraitRetournerPrix")
-    public void devraitRetournerPrix() {
+    void devraitRetournerPrix() {
         Patient patient = mock(Patient.class);
         Medecin medecin = mock(Medecin.class);
 
@@ -45,7 +44,7 @@ public class RendezVousTest {
 
     @Test
     @DisplayName("devraitRetournerRepresentationChaine")
-    public void devraitRetournerRepresentationChaine() {
+    void devraitRetournerRepresentationChaine() {
         Patient patient = mock(Patient.class);
         when(patient.getNom()).thenReturn("Doe");
 

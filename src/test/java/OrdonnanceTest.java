@@ -7,6 +7,7 @@ import org.junit.jupiter.api.Test;
 
 import java.util.List;
 
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
@@ -27,12 +28,7 @@ class OrdonnanceTest {
 
     @BeforeEach
     public void resetOrdonnance() {
-        Medicament medicament = mock(Medicament.class);
-        when(medicament.getNom()).thenReturn("Doliprane");
-        when(medicament.getNombreJours()).thenReturn(7);
-        when(medicament.getPosologie()).thenReturn(3);
-        List<Medicament> medicaments = List.of(medicament);
-        ordonnance = new Ordonnance("1", medicaments);
+        OrdonnanceTest.initOrdonnance();
     }
 
     @Test
@@ -42,7 +38,7 @@ class OrdonnanceTest {
 
         ordonnance.prescrire(medicament);
 
-        assert ordonnance.getMedicaments().contains(medicament);
+        assertTrue(ordonnance.getMedicaments().contains(medicament));
     }
 
     @Test
@@ -54,7 +50,7 @@ class OrdonnanceTest {
 
         String affichageMedicaments = ordonnance.afficherMedicaments();
 
-        assert affichageMedicaments.contains("Doliprane : 7 jours, 3 fois par jour.");
+        assertTrue(affichageMedicaments.contains("Doliprane : 7 jours, 3 fois par jour."));
     }
 
     @Test
@@ -66,6 +62,6 @@ class OrdonnanceTest {
 
         String affichageOrdonnance = ordonnance.toString();
 
-        assert affichageOrdonnance.contains("1 : \nDoliprane : 7 jours, 3 fois par jour.");
+        assertTrue(affichageOrdonnance.contains("1 : \nDoliprane : 7 jours, 3 fois par jour."));
     }
 }

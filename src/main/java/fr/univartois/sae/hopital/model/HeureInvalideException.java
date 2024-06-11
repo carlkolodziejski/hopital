@@ -1,4 +1,4 @@
-package fr.univartois.sae.hopital.controller;
+package fr.univartois.sae.hopital.model;
 
 public class HeureInvalideException extends Exception {
     public HeureInvalideException() {
