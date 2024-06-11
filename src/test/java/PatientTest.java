@@ -20,6 +20,7 @@ class PatientTest {
 
         // Act
         patient.marquerFacturePayee(facture);
+        patient.marquerFacturePayee(facture);
 
         // Assert
         assertTrue(facture.isPayee());
