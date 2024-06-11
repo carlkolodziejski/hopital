@@ -33,7 +33,7 @@ public class Ordonnance {
      *
      * @param medicament Le médicament à ajouter.
      */
-    void prescrire(Medicament medicament) {
+    public void prescrire(Medicament medicament) {
         medicaments.add(medicament);
     }
 
@@ -42,7 +42,7 @@ public class Ordonnance {
      *
      * @return La liste des médicaments compris dans l'ordonnance.
      */
-    String afficherMedicaments() {
+    public String afficherMedicaments() {
         StringBuilder affichageMedicaments = new StringBuilder();
         for (Medicament medicament : medicaments) {
             affichageMedicaments.append(medicament.toString()).append("\n");
