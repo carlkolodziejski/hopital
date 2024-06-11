@@ -51,7 +51,7 @@ public class Facture {
      * Détermine le coût total de la facture.
      * Le prix est determiné par le prix d'un rendez-vous multiplié par le nombre de rendez-vous compris dans la facture.
      */
-    private void calculerCoutTotal() {
+    public void calculerCoutTotal() {
         for (RendezVous rdv : rendezVous) {
             coutTotal += rdv.getPrix();
         }
