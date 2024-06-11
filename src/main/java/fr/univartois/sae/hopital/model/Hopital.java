@@ -65,6 +65,13 @@ public class Hopital {
     }
 
     /**
+     * Supprime un patient de la liste des patients.
+     */
+    public void supprimerPatient(Patient patient) {
+        patients.remove(patient);
+    }
+
+    /**
      * Retourne une représentation en chaîne de la liste des médecins.
      *
      * @return Une chaîne représentant la liste des médecins.
