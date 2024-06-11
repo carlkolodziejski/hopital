@@ -22,7 +22,7 @@ class MedicamentTest {
     @Test
     @DisplayName("Test medecin toString()")
     void testMedicament() {
-        assertEquals("Doliprane : 7, 3 par jour.", medicamentTest.toString());
+        assertEquals("Doliprane : 7 jours, 3 fois par jour.", medicamentTest.toString());
     }
 
     @Test
