@@ -29,6 +29,7 @@ Espace patient :
 - Régler facture -> uniquement possible après un rendez-vous
 - Consulter historique médical
 - Donner un avis -> uniquement possible après un rendez-vous et par la personne concernée
-
-Espace médecin :
+- Historique médical permet d'ajouter un feedback
+  Espace médecin :
+- Afficher rendez vous permet d'ajouter une ordonnance et un diagnostic.
   

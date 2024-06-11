@@ -39,7 +39,7 @@ public class Medicament {
      */
     @Override
     public String toString() {
-        return nom + " : " + nombreJours + ", " + posologie + " par jour.";
+        return nom + " : " + nombreJours + " jours, " + posologie + " fois par jour.";
     }
 
     /**
