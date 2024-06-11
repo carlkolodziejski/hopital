@@ -33,7 +33,7 @@ public class Patient extends Personne {
     }
 
 
-  /**
+    /**
      * Retourne la date de naissance du patient.
      *
      * @return La date de naissance du patient.
@@ -94,5 +94,9 @@ public class Patient extends Personne {
     @Override
     public String toString() {
         return getNom() + " " + prenom + " : " + groupeSanguin + ", né le " + dateNaissance;
+    }
+
+    public String getPrenom() {
+        return prenom;
     }
 }

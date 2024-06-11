@@ -1,6 +1,9 @@
 package fr.univartois.sae.hopital.controller;
 
-import fr.univartois.sae.hopital.model.*;
+import fr.univartois.sae.hopital.model.Hopital;
+import fr.univartois.sae.hopital.model.IHopitalControleur;
+import fr.univartois.sae.hopital.model.Medecin;
+import fr.univartois.sae.hopital.model.RendezVous;
 import javafx.beans.binding.Bindings;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -16,7 +19,7 @@ import java.util.UUID;
 /**
  * Classe qui représente le contrôleur du menu de prise de rendez-vous.
  */
-public class MenuRendezVousControleur implements IHopitalControleur {
+public class MenuPriseRendezVousControleur implements IHopitalControleur {
 
     /**
      * La fenêtre de l'application.
@@ -81,10 +84,13 @@ public class MenuRendezVousControleur implements IHopitalControleur {
 
             validerAjout();
         } catch (NumberFormatException | HeureInvalideException e) {
-            message.setText("Veuillez saisir une heure et des minutes valides.");
+            message.setText("Veuillez saisir une horaire.");
         }
     }
 
+    /**
+     * Nettoie les champ d'entrées après la validation de la prise de rendez-vous.
+     */
     private void validerAjout() {
         choixMedecin.getSelectionModel().clearSelection();
         champHeure.clear();
@@ -95,6 +101,12 @@ public class MenuRendezVousControleur implements IHopitalControleur {
         message.setText("Rendez-vous pris avec succès.");
     }
 
+    /**
+     * Permet de définir un rendez-vous à partir des informations saisies.
+     *
+     * @return Le rendez-vous défini.
+     * @throws HeureInvalideException Si l'heure saisie est invalide.
+     */
     private RendezVous definirRendezVous() throws HeureInvalideException {
         String id = UUID.randomUUID().toString();
         Medecin medecin = choixMedecin.getValue();

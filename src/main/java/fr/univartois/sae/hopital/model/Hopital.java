@@ -37,10 +37,10 @@ public class Hopital {
      * Constructeur de la classe Hopital.
      */
     public Hopital() {
-        this.medecins = FXCollections.observableArrayList();
-        this.patients = FXCollections.observableArrayList();
-        this.nbPersonnes = new SimpleIntegerProperty(0);
-        this.patientCourant = null;
+        medecins = FXCollections.observableArrayList();
+        patients = FXCollections.observableArrayList();
+        nbPersonnes = new SimpleIntegerProperty(0);
+        patientCourant = null;
 
         // Cet écouteur permet de mettre à jour le nombre de personnes dans l'hôpital à chaque fois que la taille de la liste des médecins ou des patients change.
         ListChangeListener<Personne> listener = change -> updateNbPersonnes();
