@@ -72,6 +72,16 @@ public class Hopital {
     }
 
     /**
+     * Supprime un médecin de la liste des médecins de l'hôpital.
+     *
+     * @param medecin Le médecin à supprimer.
+     * @return true si le médecin a été trouvé et supprimé, sinon false.
+     */
+    public boolean supprimerMedecin(Medecin medecin) {
+        return medecins.remove(medecin);
+    }
+
+    /**
      * Retourne une représentation en chaîne de la liste des médecins.
      *
      * @return Une chaîne représentant la liste des médecins.
